@@ -24,16 +24,6 @@
             </svg>
         </mijnui:icon>
 
-        <mijnui:icon x-on:click="drawerOpen = true"
-                     class="p-1 size-8 rounded hover:bg-accent cursor-pointer border">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                 stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-            </svg>
-        </mijnui:icon>
-
-
         <mijnui:dropdown>
             <mijnui:dropdown.trigger>
                 <mijnui:avatar fallback="P" class="cursor-pointer"></mijnui:avatar>
@@ -41,12 +31,14 @@
             <mijnui:dropdown.content align="right">
                 <mijnui:dropdown.body>
                     <mijnui:list class="min-w-32">
-                        <mijnui:list.item href="#">
+                        <mijnui:list.item href="{{ route('profile.edit') }}">
                             {{ __('Profile') }}
                         </mijnui:list.item>
-                        <form method="POST" action="#" class="w-full ">
+                        <form method="POST" action="{{ route('logout') }}" class="w-full ">
                             @csrf
-                            <mijnui:list.item as="button" type="submit" icon="arrow-right-start-on-rectangle"
+                            <mijnui:list.item as="button" type="submit" icon="arrow-right-start-on-rectangle" :href="route('logout')"
+                                              onclick="event.preventDefault();
+                                                this.closest('form').submit();"
                                               class="w-fit">
                                 {{ __('Log Out') }}
                             </mijnui:button>
@@ -55,6 +47,7 @@
                 </mijnui:dropdown.body>
             </mijnui:dropdown.content>
         </mijnui:dropdown>
+
     </mijnui:header.navbar>
 </mijnui:header>
 

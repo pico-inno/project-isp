@@ -1,47 +1,46 @@
 <x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <div class="min-h-screen flex items-center justify-center bg-gray-150">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
+        <mijnui:card class="max-w-md p-8 shadow-md">
+            <mijnui:card.header>
+                <mijnui:card.title>
+                    {{ __('Login to your account') }}
+                </mijnui:card.title>
+                <mijnui:card.description>Enter your email and password below to
+                    <strong>Dashboard</strong>
+                </mijnui:card.description>
+            </mijnui:card.header>
+            @if (session('status'))
+                <mijnui:alert color="error" class="mb-4">
+                    <mijnui:alert.description class="pl-0">{{ session('status') }}</mijnui:alert.description>
+                </mijnui:alert>
             @endif
+            <mijnui:card.content>
+                <form method="POST" action="{{ route('login') }}" class="space-y-4">
+                        @csrf
+                    <div>
+                        <mijnui:input type="email" id="email" label="Email" wire:model="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                    </div>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
+                    <div>
+                        <mijnui:input type="password" id="password" label="Password" wire:model="password"  name="password"
+                                      required autocomplete="current-password"/>
+                    </div>
+
+
+                    <div class="block mt-4">
+                        <label for="remember_me" class="inline-flex items-center">
+                            <mijnui:checkbox wire:model="remember" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember" />
+                            <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                        </label>
+                    </div>
+
+                    <mijnui:button  type="submit" color="primary" class="w-full">
+                        {{ __('Log in') }}
+                    </mijnui:button>
+                </form>
+            </mijnui:card.content>
+        </mijnui:card>
+
+    </div>
 </x-guest-layout>
