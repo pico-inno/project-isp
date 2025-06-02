@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <title>{{ $title ?? 'Page Title' }}</title>
-        @livewireStyles
-        @vite('resources/css/app.css')
-    </head>
-    <body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
-
-    <div class="shadow-md">Test Tailwind</div>
-    <div class="shadow-lg">Test Tailwind</div>
-    <div class="shadow-xl">Test Tailwind</div>
-        {{ $slot }}
-
-        @livewireScripts
-    </body>
-</html>
+<x-layouts.app.header>
+    <x-layouts.app.sidebar>
+        <mijnui:main variant="double">
+            <div class="pr-4 py-4">
+                {{ $slot }}
+            </div>
+        </mijnui:main>
+    </x-layouts.app.sidebar>
+</x-layouts.app.header>
+@mijnuiScripts
+@livewireScripts
