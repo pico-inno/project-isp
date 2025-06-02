@@ -6,12 +6,18 @@
 
         <title>{{ $title ?? 'Page Title' }}</title>
         @livewireStyles
-        @vite(['resources/js/app.js'])
+        @vite('resources/css/app.css')
     </head>
     <body>
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
+
+    <div class="shadow-md">Test Tailwind</div>
+    <div class="shadow-lg">Test Tailwind</div>
+    <div class="shadow-xl">Test Tailwind</div>
         {{ $slot }}
 
         @livewireScripts
-        @mijnuiScripts
     </body>
 </html>
