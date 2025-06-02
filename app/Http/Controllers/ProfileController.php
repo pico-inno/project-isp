@@ -16,6 +16,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+//        if (!auth()->user()->hasPermissionTo('update', 'User')) {
+//            abort(403);
+//        }
+
         return view('profile.edit', [
             'user' => $request->user(),
         ]);

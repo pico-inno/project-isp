@@ -17,4 +17,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/users', function (){
+        return 'welcome user list';
+    })
+    ->middleware('permission:create,Product');
+
+});
 require __DIR__.'/auth.php';
