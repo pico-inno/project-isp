@@ -5,7 +5,7 @@
     @include('partials.head')
 </head>
 
-<body class="min-h-screen" x-data="{ drawerOpen: false }" x-init="$store.theme.init()">
+<body class="min-h-screen " x-data="{ drawerOpen: false }" x-init="$store.theme.init()">
 <mijnui:header>
     <mijnui:header.navbar>
 

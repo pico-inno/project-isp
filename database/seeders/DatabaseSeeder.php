@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         // Create features
         $userFeature = Feature::create(['name' => 'User']);
-        $productFeature = Feature::create(['name' => 'Product']);
+        $productFeature = Feature::create(['name' => 'Role']);
         // Add more features as needed
 
         // Create permissions for each feature
