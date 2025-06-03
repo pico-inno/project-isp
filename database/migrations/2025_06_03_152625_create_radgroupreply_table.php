@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('radgroupreply', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('groupname', 64)->index();
+            $table->string('attribute', 64);
+            $table->char('op', 2)->default('=');
+            $table->string('value', 253);
         });
     }
 

@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('radpostauth', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('username', 64)->index();
+            $table->string('pass', 64);
+            $table->string('reply', 32);
+            $table->timestamp('authdate', 6)->useCurrent()->useCurrentOnUpdate();
+            $table->string('class', 64)->nullable()->index();
         });
     }
 

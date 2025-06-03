@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('nas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nasname', 128)->index();
+            $table->string('shortname', 32)->nullable();
+            $table->string('type', 30)->default('other')->nullable();
+            $table->integer('ports')->nullable();
+            $table->string('secret', 60)->default('secret');
+            $table->string('server', 64)->nullable();
+            $table->string('community', 50)->nullable();
+            $table->string('description', 200)->default('RADIUS Client')->nullable();
         });
     }
 

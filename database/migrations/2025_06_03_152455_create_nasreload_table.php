@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nasreload', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('nasipaddress', 15)->primary();
+            $table->dateTime('reloadtime');
         });
     }
 
