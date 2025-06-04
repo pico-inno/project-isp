@@ -16,7 +16,7 @@
 
         <div class="flex gap-2">
             <mijnui:button
-                wire:navigate href="{{ route('users.index') }}"
+                wire:navigate href="{{ route('routers.index') }}"
                 class="flex items-center gap-2"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

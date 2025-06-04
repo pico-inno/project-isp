@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', \App\Livewire\Dashboard::class)->middleware(['auth', 'verified'])->name('dashboard')->lazy();
@@ -14,20 +14,20 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/users', \App\Livewire\User\Index::class)->name('users.index')->middleware('permission:read,User');
-    Route::get('/users/create', \App\Livewire\User\Form::class)->name('users.create')->middleware('permission:create,User');
-    Route::get('/users/{user}/edit', \App\Livewire\User\Form::class)->name('users.edit')->middleware('permission:update,User');
+    Route::get('/users', \App\Livewire\User\Index::class)->name('users.index')->lazy()->middleware('permission:read,User');
+    Route::get('/users/create', \App\Livewire\User\Form::class)->name('users.create')->lazy()->middleware('permission:create,User');
+    Route::get('/users/{user}/edit', \App\Livewire\User\Form::class)->name('users.edit')->lazy()->middleware('permission:update,User');
 
-    Route::get('/role-permissions', \App\Livewire\Role\Index::class)->name('role-permissions.index')->middleware('permission:read,Role');
-    Route::get('/role-permissions/create', \App\Livewire\Role\Form::class)->name('role-permissions.create')->middleware('permission:create,Role');
-    Route::get('/role-permissions/{role}/edit', \App\Livewire\Role\Form::class)->name('role-permissions.edit')->middleware('permission:update,Role');
+    Route::get('/role-permissions', \App\Livewire\Role\Index::class)->name('role-permissions.index')->lazy()->middleware('permission:read,Role');
+    Route::get('/role-permissions/create', \App\Livewire\Role\Form::class)->name('role-permissions.create')->lazy()->middleware('permission:create,Role');
+    Route::get('/role-permissions/{role}/edit', \App\Livewire\Role\Form::class)->name('role-permissions.edit')->lazy()->middleware('permission:update,Role');
 
 
     Route::prefix('routers')->group(function () {
-        Route::get('/', \App\Livewire\Router\Index::class)->name('routers.index')->middleware('permission:read,Router');
-        Route::get('/create', \App\Livewire\Router\Form::class)->name('routers.create')->middleware('permission:create,Router');
-        Route::get('/{router}/edit', \App\Livewire\Router\Form::class)->name('routers.edit')->middleware('permission:update,Router');
-        Route::get('/{router}/dashboard', \App\Livewire\Router\Dashboard::class)->name('routers.dashboard')->middleware('permission:read,Router');
+        Route::get('/', \App\Livewire\Router\Index::class)->name('routers.index')->lazy()->middleware('permission:read,Router');
+        Route::get('/create', \App\Livewire\Router\Form::class)->name('routers.create')->lazy()->middleware('permission:create,Router');
+        Route::get('/{router}/edit', \App\Livewire\Router\Form::class)->name('routers.edit')->lazy()->middleware('permission:update,Router');
+        Route::get('/{router}/dashboard', \App\Livewire\Router\Dashboard::class)->name('routers.dashboard')->lazy()->middleware('permission:read,Router');
     });
 });
 

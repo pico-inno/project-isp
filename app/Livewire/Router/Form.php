@@ -71,4 +71,9 @@ class Form extends Component
     {
         return view('livewire.router.form');
     }
+
+    public function placeholder()
+    {
+        return view('components.form-placeholder');
+    }
 }

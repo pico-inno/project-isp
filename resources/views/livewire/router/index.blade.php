@@ -77,6 +77,13 @@
                             <div class="flex items-center justify-end space-x-2">
                                 <mijnui:button
                                     size="xs"
+                                    wire:click="connectToRouter({{ $router->id }})"
+                                    title="Connect"
+                                >
+                                   Connect
+                                </mijnui:button>
+                                <mijnui:button
+                                    size="xs"
                                     color="secondary"
                                     wire:click="editRouter({{ $router->id }})"
                                     title="Edit"

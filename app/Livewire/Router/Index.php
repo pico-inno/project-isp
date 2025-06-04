@@ -14,6 +14,10 @@ class Index extends Component
 
     public $search = '';
 
+    public function mount(){
+        //continue
+    }
+
     public function createRouter()
     {
         return $this->redirect(route('routers.create'), navigate: true);
@@ -24,6 +28,12 @@ class Index extends Component
     {
         return $this->redirect(route('routers.edit', $routerId), navigate: true);
     }
+
+    public function connectToRouter($routerId)
+    {
+        return $this->redirect(route('routers.dashboard', $routerId), navigate: true);
+    }
+
     public function deleteRouter($routerId)
     {
         if (!auth()->user()->hasPermissionTo('delete', 'Router')) {
@@ -49,5 +59,10 @@ class Index extends Component
             })
             ->paginate(10);
         return view('livewire.router.index', compact('routers'));
+    }
+
+    public function placeholder()
+    {
+        return view('components.table-placeholder');
     }
 }

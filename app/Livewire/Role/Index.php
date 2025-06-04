@@ -17,6 +17,10 @@ class Index extends Component
 
     public $search = '';
 
+    public function mount(){
+        //continue
+    }
+
     public function createRole(){
         return redirect()->route('role-permissions.create');
     }
@@ -60,5 +64,10 @@ class Index extends Component
             ->paginate(10);
 
         return view('livewire.role.index', compact('roles'));
+    }
+
+    public function placeholder()
+    {
+        return view('components.table-placeholder');
     }
 }

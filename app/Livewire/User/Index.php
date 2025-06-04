@@ -13,6 +13,10 @@ class Index extends Component
 
     public $search = '';
 
+    public function mount(){
+        //continue
+    }
+
     public function createUser(){
         return redirect()->route('users.create');
     }
@@ -47,5 +51,10 @@ class Index extends Component
             ->paginate(10);
 
         return view('livewire.user.index', compact('users'));
+    }
+
+    public function placeholder()
+    {
+        return view('components.table-placeholder');
     }
 }

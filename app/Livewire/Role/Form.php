@@ -90,4 +90,9 @@ class Form extends Component
             'fPermissions' => $featuresWithPermissions
         ]);
     }
+
+    public function placeholder()
+    {
+        return view('components.form-placeholder');
+    }
 }

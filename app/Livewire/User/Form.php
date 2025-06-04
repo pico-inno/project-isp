@@ -82,4 +82,9 @@ class Form extends Component
     {
         return view('livewire.user.form');
     }
+
+    public function placeholder()
+    {
+        return view('components.form-placeholder');
+    }
 }
