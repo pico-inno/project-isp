@@ -22,6 +22,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/role-permissions/create', \App\Livewire\Role\Form::class)->name('role-permissions.create')->middleware('permission:create,Role');
     Route::get('/role-permissions/{role}/edit', \App\Livewire\Role\Form::class)->name('role-permissions.edit')->middleware('permission:update,Role');
 
+
+    Route::prefix('routers')->group(function () {
+        Route::get('/', \App\Livewire\Router\Index::class)->name('routers.index')->middleware('permission:read,Router');
+        Route::get('/create', \App\Livewire\Router\Form::class)->name('routers.create')->middleware('permission:create,Router');
+        Route::get('/{router}/edit', \App\Livewire\Router\Form::class)->name('routers.edit')->middleware('permission:update,Router');
+        Route::get('/{router}/dashboard', \App\Livewire\Router\Dashboard::class)->name('routers.dashboard')->middleware('permission:read,Router');
+    });
 });
 
 require __DIR__.'/auth.php';
