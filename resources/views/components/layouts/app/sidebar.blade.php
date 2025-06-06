@@ -42,6 +42,14 @@
             </svg>
         </mijnui:button>
 
+        <mijnui:button  wire:navigate  href="{{ route('about') }}"
+            mijnui-sidebar-parent=""
+            title="Info"
+            size="icon-sm"
+            ghost>
+            <i class="fa-solid fa-circle-info"></i>
+        </mijnui:button>
+
 
 
 
@@ -69,9 +77,28 @@
 
     <mijnui:sidebar.double.content mijnui-sidebar-child="router" title="Router Management">
         <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
-            <mijnui:list.item href="{{route('routers.index')}}" :active="request()->routeIs('routers.index')" wire:navigate>Routers</mijnui:list.item>
+            @php
+                $routerRoutes = [
+                    'routers.dashboard',
+                    'radius.index', 'radius.create', 'radius.edit',
+                    'radcheck.index', 'radcheck.create', 'radcheck.edit',
+                    'ppp_profiles.index'
+                ];
+            @endphp
+
+            @if(!in_array(request()->route()->getName(), $routerRoutes))
+                <mijnui:list.item href="{{ route('routers.index') }}" :active="request()->routeIs('routers.index')" wire:navigate>Routers</mijnui:list.item>
+            @else
+                <mijnui:list.item href="{{ route('routers.dashboard', ['router' => request()->route('router')]) }}" :active="request()->routeIs('routers.dashboard')" wire:navigate>Dashboard</mijnui:list.item>
+                <mijnui:list.item href="{{ route('radius.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('radius.*')" wire:navigate>Radius</mijnui:list.item>
+                <mijnui:list.item href="{{ route('radcheck.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('radcheck.*')" wire:navigate>User Account</mijnui:list.item>
+                <mijnui:list.item href="{{ route('ppp_profiles.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('ppp_profiles.*')" wire:navigate>Packages</mijnui:list.item>
+                <mijnui:list.item href="{{ route('routers.index') }}" :active="request()->routeIs('routers.index')" wire:navigate>Back Router List</mijnui:list.item>
+            @endif
+
         </mijnui:list>
     </mijnui:sidebar.double.content>
+
 
 </mijnui:sidebar>
 

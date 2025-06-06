@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('radius_users', function (Blueprint $table) {
+        Schema::create('rad_acc_packages', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->string('service')->default('ppp');
-            $table->string('profile')->default('default');
-            $table->text('comment')->nullable();
+            $table->foreignId('radcheck_id')->constrained('radcheck');
+            $table->foreignId('ppp_profiles_id')->constrained('ppp_profiles');
+            $table->dateTime('expires_at');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('radius_users');
+        Schema::dropIfExists('rad_acc_packages');
     }
 };

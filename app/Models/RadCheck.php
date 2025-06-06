@@ -17,4 +17,21 @@ class RadCheck extends Model
 
     public $timestamps = false;
 
+    public function accPackage()
+    {
+        return $this->hasOne(RadAccPackage::class, 'radcheck_id');
+    }
+
+    public function pppProfile()
+    {
+        return $this->hasOneThrough(
+            PppProfile::class,
+            RadAccPackage::class,
+            'radcheck_id',       // Foreign key on RadAccPackage
+            'id',                // Foreign key on PppProfile
+            'id',                // Local key on RadCheck
+            'ppp_profiles_id'    // Local key on RadAccPackage
+        );
+    }
+
 }

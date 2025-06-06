@@ -21,6 +21,7 @@ class Dashboard extends Component
     public bool $isLoading = true;
     public $trafficData =  [];
     public $dataPoints =  [];
+    public $targetInterface = 'ether2';
 
     public function mount(Router $router)
     {
@@ -39,14 +40,14 @@ class Dashboard extends Component
     {
         try {
             $query = (new Query('/interface/monitor-traffic'))
-                ->equal('interface', 'ether2')
+                ->equal('interface', $this->targetInterface)
                 ->equal('once', '');
 
             $response = $client->query($query)->read();
 
 
+            $currentTime = now()->format('H:i:s');
 
-            $currentTime = now()->format('H:i');
             $rxRate = ($response[0]['rx-bits-per-second'] ?? 0) / 1000; // Convert to kbps
             $txRate = ($response[0]['tx-bits-per-second'] ?? 0) / 1000; // Convert to kbps
 
@@ -76,6 +77,7 @@ class Dashboard extends Component
             logger()->error('Failed to fetch traffic data: ' . $e->getMessage());
         }
     }
+
 
     protected function calculateStats(): void
     {

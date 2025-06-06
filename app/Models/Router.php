@@ -25,4 +25,9 @@ class Router extends Model
             }
         });
     }
+
+    public function radiusServers()
+    {
+        return $this->hasMany(RadiusServer::class);
+    }
 }

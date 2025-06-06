@@ -85,7 +85,7 @@
                                 <dt class="text-sm font-medium text-gray-500 truncate">Memory Usage</dt>
                                 <dd class="flex items-baseline">
                                     <div class="text-2xl font-semibold text-gray-900">
-                                        {{ $this->formatBytes($systemInfo['used-memory'] ?? 0) }} / {{ $this->formatBytes($systemInfo['total-memory'] ?? 0) }}
+                                        {{ $this->formatBytes($systemInfo['free-memory'] ?? 0) }} / {{ $this->formatBytes($systemInfo['total-memory'] ?? 0) }}
                                     </div>
                                 </dd>
                             </div>
@@ -133,6 +133,37 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
+            <div
+                x-data="{
+                        currentTx: {{ last($this->trafficData)['tx'] ?? 0 }},
+                        currentRx: {{ last($this->trafficData)['rx'] ?? 0 }}
+                    }"
+                class="bg-white p-6 rounded-xl shadow-md">
+                <input type="hidden" id="traffic_data" value='@json($this->trafficData)' />
+
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Interface {{ $targetInterface ?? 'N/A' }} Traffic</h3>
+
+                    <div class="flex items-center gap-6 text-sm font-medium">
+                        <div class="text-blue-600 flex items-center gap-1">
+                          Tx  ▲ <span x-text="currentTx.toFixed(2)"></span>
+                        </div>
+                        <div class="text-green-600 flex items-center gap-1">
+                          Rx  ▼ <span x-text="currentRx.toFixed(2)"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <canvas id="networkTrafficChart"></canvas>
+                </div>
+                     </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+
                 </div>
             </div>
 
@@ -214,32 +245,88 @@
 </div>
 @script
 <script>
-    const ctx = document.getElementById('bandwidthChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['10:00', '10:15', '10:30', '10:45', '11:00'],
-            datasets: [{
-                label: 'Bandwidth (Mbps)',
-                data: [12, 25, 18, 30, 22],
-                borderColor: 'rgba(54, 162, 235, 1)',
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                fill: true,
-                tension: 0.3
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true,
+    let networkChart = null;
+    function timeAgo(secondsAgo) {
+        const minutes = Math.floor(secondsAgo / 60);
+        return `${minutes} min ago`;
+    }
+
+    function renderNetworkChart() {
+        const ctx = document.getElementById('networkTrafficChart')?.getContext('2d');
+        if (!ctx) return;
+
+        const trafficDataRaw = document.getElementById('traffic_data')?.value;
+        let trafficData = JSON.parse(trafficDataRaw || '[]');
+
+        trafficData = trafficData.slice(-10);
+
+        const labels = trafficData.map(item => item.time);
+        const rxData = trafficData.map(item => item.rx);
+        const txData = trafficData.map(item => item.tx);
+
+        // Destroy previous chart instance
+        if (networkChart) {
+            networkChart.destroy();
+        }
+
+        const config = {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Tx', // Transmit
+                        data: txData,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)', // Blue
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Rx', // Receive
+                        data: rxData,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)', // Red/Pink (adjust to purple if needed)
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        fill: true,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                animation: false,
+                plugins: {
                     title: {
-                        display: true,
-                        text: 'Mbps'
+                        display: false,
+                    }
+                },
+                scales: {
+                    y: {
+
+                        title: {
+                            display: true,
+                            text: 'Speed'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time'
+                        }
                     }
                 }
             }
-        }
+        };
+
+        networkChart = new Chart(ctx, config);
+    }
+
+    document.addEventListener('DOMContentLoaded', renderNetworkChart);
+
+    Livewire.hook('morphed', () => {
+        renderNetworkChart();
     });
+
+    renderNetworkChart();
 </script>
 @endscript
