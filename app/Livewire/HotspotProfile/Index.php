@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Livewire\PppProfile;
+namespace App\Livewire\HotspotProfile;
 
+use App\Models\HotspotProfile;
 use App\Models\PppProfile;
-use App\Models\Role;
-use App\Models\Router;
 use App\Traits\HandlesFlashMessages;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Index extends Component
@@ -23,11 +21,11 @@ class Index extends Component
 
     public function deletePackage($pppProfileId)
     {
-        if (!auth()->user()->hasPermissionTo('delete', 'Profile')) {
+        if (!auth()->user()->hasPermissionTo('delete', 'Hotspot Profile')) {
             $this->flashInfo('You are not authorized to delete profile.');
         } else {
             try {
-                $pppProfile = PppProfile::findOrFail($pppProfileId);
+                $pppProfile = HotspotProfile::findOrFail($pppProfileId);
 
                 $pppProfile->delete();
 
@@ -39,15 +37,16 @@ class Index extends Component
             }
         }
     }
+
     public function render()
     {
-        $profiles = PppProfile::query()
+        $profiles = HotspotProfile::query()
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
             ->paginate(10);
 
-        return view('livewire.ppp-profile.index', compact('profiles'));
+        return view('livewire.hotspot-profile.index', compact('profiles'));
     }
 
     public function placeholder()

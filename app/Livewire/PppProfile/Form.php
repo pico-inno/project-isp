@@ -14,8 +14,6 @@ class Form extends Component
 
     public $isEdit = false;
     public PppProfile $pppProfile;
-    public $routerId;
-    public $router;
     public $name;
     public $rate_limit;
     public $download_speed;
@@ -49,11 +47,8 @@ class Form extends Component
 
     }
 
-    public function mount(Router $router, $pppProfile = null)
+    public function mount($pppProfile = null)
     {
-        $this->router = $router;
-        $this->routerId = $this->router->id;
-
         if ($pppProfile) {
             $this->pppProfile = $pppProfile;
             $this->isEdit = true;
@@ -83,7 +78,6 @@ class Form extends Component
         try {
             DB::transaction(function () {
                 $this->pppProfile->fill([
-                    'router_id' => $this->routerId,
                     'name' => $this->name,
                     'download_speed' => $this->download_speed,
                     'upload_speed' => $this->upload_speed,
@@ -93,7 +87,7 @@ class Form extends Component
             });
 
             $this->flashSuccess($this->isEdit ? 'Profile updated successfully!' : 'Profile created successfully!');
-            return $this->redirect(route('ppp_profiles.index', ['router' => $this->routerId]), navigate: true);
+            return $this->redirect(route('ppp_profiles.index'), navigate: true);
         } catch (\Exception $e) {
             $this->flashError('Error saving profile: ' . $e->getMessage());
         }

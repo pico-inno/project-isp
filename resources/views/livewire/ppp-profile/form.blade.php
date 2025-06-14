@@ -3,9 +3,7 @@
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
             <mijnui:breadcrumbs>
-                <mijnui:breadcrumbs.item wire:navigate href="{{route('routers.index')}}">Routers</mijnui:breadcrumbs.item>
-                <mijnui:breadcrumbs.item wire:navigate href="{{route('routers.dashboard', $router->id)}}">{{ $router->name }}</mijnui:breadcrumbs.item>
-                <mijnui:breadcrumbs.item wire:navigate href="{{route('ppp_profiles.index', $router->id)}}">PPP Profiles</mijnui:breadcrumbs.item>
+                <mijnui:breadcrumbs.item wire:navigate href="{{route('ppp_profiles.index')}}">Profiles</mijnui:breadcrumbs.item>
                 <mijnui:breadcrumbs.item isLast>{{ $isEdit ? 'Edit' : 'Create' }} Profile</mijnui:breadcrumbs.item>
             </mijnui:breadcrumbs>
             <h2 class="text-2xl font-semibold mt-2">
@@ -17,15 +15,6 @@
         </div>
 
         <div class="flex gap-2">
-            <mijnui:button
-                wire:navigate href="{{ route('ppp_profiles.index', ['router' => $router->id]) }}"
-                class="flex items-center gap-2"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-                </svg>
-                Back to Profiles
-            </mijnui:button>
         </div>
     </div>
     <x-flash-message />
@@ -84,7 +73,7 @@
                 <div class="flex justify-end gap-3 pt-4 border-t border-gray-200">
                     <mijnui:button
                         type="button"
-                        wire:navigate href="{{ route('ppp_profiles.index', ['router' => $router->id]) }}"
+                        wire:navigate href="{{ route('ppp_profiles.index') }}"
                     >
                         Cancel
                     </mijnui:button>

@@ -24,6 +24,9 @@ class DatabaseSeeder extends Seeder
         $userFeature = Feature::create(['name' => 'User']);
         $roleFeature = Feature::create(['name' => 'Role']);
         $routerFeature = Feature::create(['name' => 'Router']);
+        $radiusFeature = Feature::create(['name' => 'Radius']);
+        $clientAccountFeature = Feature::create(['name' => 'Client Account']);
+        $profileFeature = Feature::create(['name' => 'Profile']);
         // Add more features as needed
 
         // Create permissions for each feature
@@ -31,7 +34,7 @@ class DatabaseSeeder extends Seeder
             'create', 'read', 'update', 'delete'
         ];
 
-        foreach ([$userFeature, $roleFeature, $routerFeature] as $feature) {
+        foreach ([$userFeature, $roleFeature, $routerFeature, $radiusFeature, $clientAccountFeature, $profileFeature] as $feature) {
             foreach ($permissions as $permission) {
                 Permission::create([
                     'name' => $permission,

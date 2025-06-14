@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('rad_acc_packages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('radcheck_id')->constrained('radcheck');
-            $table->foreignId('ppp_profiles_id')->constrained('ppp_profiles');
+            $table->string('radcheck_username');
+            $table->foreign('radcheck_username')
+                ->references('username')
+                ->on('radcheck')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('ppp_profiles_id')->nullable();
+            $table->unsignedBigInteger('hotspot_profiles_id')->nullable();
             $table->dateTime('expires_at');
             $table->boolean('is_active')->default(true);
             $table->timestamps();

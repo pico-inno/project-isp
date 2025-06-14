@@ -20,7 +20,10 @@ class Dashboard extends Component
     public ?string $connectionError = null;
     public bool $isLoading = true;
     public $trafficData =  [];
-    public $dataPoints =  [];
+
+    public $currentRx = 0;
+    public $currentTx = 0;
+    public $activePppoe = [];
     public $targetInterface = 'ether2';
 
     public function mount(Router $router)
@@ -28,96 +31,6 @@ class Dashboard extends Component
         $this->router = $router;
         $this->connectAndLoadData();
     }
-
-// Add these properties to your component
-    public $currentRx = 0;
-    public $currentTx = 0;
-    public $avgRx = 0;
-    public $avgTx = 0;
-    public $peak = 0;
-
-    protected function loadTrafficData(Client $client): void
-    {
-        try {
-            $query = (new Query('/interface/monitor-traffic'))
-                ->equal('interface', $this->targetInterface)
-                ->equal('once', '');
-
-            $response = $client->query($query)->read();
-
-
-            $currentTime = now()->format('H:i:s');
-
-            $rxRate = ($response[0]['rx-bits-per-second'] ?? 0) / 1000; // Convert to kbps
-            $txRate = ($response[0]['tx-bits-per-second'] ?? 0) / 1000; // Convert to kbps
-
-            // Update current rates
-            $this->currentRx = round($rxRate, 1);
-            $this->currentTx = round($txRate, 1);
-
-            // Add new data point
-            $this->trafficData[] = [
-                'time' => $currentTime,
-                'rx' => $this->currentRx,
-                'tx' => $this->currentTx
-            ];
-
-            // Keep only the last N data points
-            if (count($this->trafficData) > $this->dataPoints) {
-                $this->trafficData = array_slice($this->trafficData, -$this->dataPoints);
-            }
-
-            // Calculate averages and peak
-            $this->calculateStats();
-
-            // Dispatch event to update chart
-            $this->dispatch('updateBandwidthChart', data: $this->getTrafficDataForChart());
-
-        } catch (QueryException $e) {
-            logger()->error('Failed to fetch traffic data: ' . $e->getMessage());
-        }
-    }
-
-
-    protected function calculateStats(): void
-    {
-        if (empty($this->trafficData)) {
-            return;
-        }
-
-        $rxValues = array_column($this->trafficData, 'rx');
-        $txValues = array_column($this->trafficData, 'tx');
-        $allValues = array_merge($rxValues, $txValues);
-
-        $this->avgRx = round(array_sum($rxValues) / count($rxValues), 1);
-        $this->avgTx = round(array_sum($txValues) / count($txValues), 1);
-        $this->peak = round(max($allValues), 1);
-    }
-
-    public function getTrafficDataForChart(): array
-    {
-        if (empty($this->trafficData)) {
-            return [
-                'labels' => [],
-                'rxData' => [],
-                'txData' => []
-            ];
-        }
-
-        return [
-            'labels' => array_column($this->trafficData, 'time'),
-            'rxData' => array_column($this->trafficData, 'rx'),
-            'txData' => array_column($this->trafficData, 'tx')
-        ];
-    }
-
-    public function placeholder()
-    {
-        return view('components.dashboard-placeholder', [
-            'router' => $this->router
-        ]);
-    }
-
 
     public function retryConnection()
     {
@@ -133,12 +46,63 @@ class Dashboard extends Component
             $this->loadSystemInfo($client);
             $this->loadInterfaces($client);
             $this->loadTrafficData($client);
+            $this->getLastActivePppoeConnections($client);
+
             $this->isConnected = true;
         } catch (\Exception $e) {
             $this->connectionError = $this->formatErrorMessage($e);
             $this->isConnected = false;
         } finally {
             $this->isLoading = false;
+        }
+    }
+
+    protected function loadTrafficData(Client $client): void
+    {
+        try {
+            $query = (new Query('/interface/monitor-traffic'))
+                ->equal('interface', $this->targetInterface)
+                ->equal('once', '');
+
+            $response = $client->query($query)->read();
+
+
+            $currentTime = now()->format('H:i:s');
+
+            $rxRate = ($response[0]['rx-bits-per-second'] ?? 0) / 1000;
+            $txRate = ($response[0]['tx-bits-per-second'] ?? 0) / 1000;
+
+            $this->currentRx = round($rxRate, 1);
+            $this->currentTx = round($txRate, 1);
+
+            $this->trafficData[] = [
+                'time' => $currentTime,
+                'rx' => $this->currentRx,
+                'tx' => $this->currentTx
+            ];
+
+        } catch (QueryException $e) {
+            logger()->error('Failed to fetch traffic data: ' . $e->getMessage());
+        }
+    }
+
+    protected function getLastActivePppoeConnections(Client $client)
+    {
+        try {
+            $query = (new Query('/ppp/active/print'))
+                ->where('service', 'pppoe');
+
+            $response = $client->query($query)->read();
+
+            // Sort by uptime (most recent first) and get last 6
+            usort($response, function($a, $b) {
+                return strtotime($b['uptime']) - strtotime($a['uptime']);
+            });
+
+            $this->activePppoe =  array_slice($response, 0, 6);
+        } catch (\Exception $e) {
+            logger()->error('Failed to fetch PPPoE connections: ' . $e->getMessage());
+            return [];
         }
     }
 
@@ -217,5 +181,12 @@ class Dashboard extends Component
     public function render()
     {
         return view('livewire.router.dashboard');
+    }
+
+    public function placeholder()
+    {
+        return view('components.dashboard-placeholder', [
+            'router' => $this->router
+        ]);
     }
 }

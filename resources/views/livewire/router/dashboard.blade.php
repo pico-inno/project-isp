@@ -163,7 +163,25 @@
                 </div>
                      </div>
                 <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-lg font-semibold mb-4">Recent Active PPPoE Connections</h3>
+                    <div class="space-y-3">
 
+                        @forelse($activePppoe as $connection)
+                            <div class="border-b pb-2 last:border-b-0">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">{{ $connection['name'] ?? 'Unknown' }}</span>
+                                    <span class="text-sm text-gray-500">{{ $connection['uptime'] ?? 'N/A' }}</span>
+                                </div>
+                                <div class="text-sm text-gray-600 mt-1">
+                                    <span>IP: {{ $connection['address'] ?? 'N/A' }}</span>
+                                    <span class="mx-2">•</span>
+                                    <span>Caller ID: {{ $connection['caller-id'] ?? 'N/A' }}</span>
+                                </div>
+                            </div>
+                        @empty
+                            <p class="text-gray-500 text-center">No active PPPoE connections found</p>
+                        @endforelse
+                    </div>
                 </div>
             </div>
 

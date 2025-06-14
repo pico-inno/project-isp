@@ -42,6 +42,43 @@
             </svg>
         </mijnui:button>
 
+        <mijnui:button
+                        mijnui-sidebar-parent="client-account"
+                        title="Client Account"
+                        size="icon-sm"
+                        ghost>
+            <i class="fa-solid fa-users-gear"></i>
+        </mijnui:button>
+
+        <mijnui:button
+                        mijnui-sidebar-parent="profile"
+                        title="Profile"
+                        size="icon-sm"
+                        ghost>
+            <i class="fa-solid fa-cube"></i>
+        </mijnui:button>
+
+        <mijnui:button
+                        mijnui-sidebar-parent="reports"
+                        title="Info"
+                        size="icon-sm"
+                        ghost>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+                <path fill-rule="evenodd" d="M3 2.25a.75.75 0 0 1 .75.75v.54l1.838-.46a9.75 9.75 0 0 1 6.725.738l.108.054A8.25 8.25 0 0 0 18 4.524l3.11-.732a.75.75 0 0 1 .917.81 47.784 47.784 0 0 0 .005 10.337.75.75 0 0 1-.574.812l-3.114.733a9.75 9.75 0 0 1-6.594-.77l-.108-.054a8.25 8.25 0 0 0-5.69-.625l-2.202.55V21a.75.75 0 0 1-1.5 0V3A.75.75 0 0 1 3 2.25Z" clip-rule="evenodd" />
+            </svg>
+
+        </mijnui:button>
+
+        <mijnui:button
+                        mijnui-sidebar-parent="status"
+                        title="Info"
+                        size="icon-sm"
+                        ghost>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+                <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm4.5 7.5a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0v-2.25a.75.75 0 0 1 .75-.75Zm3.75-1.5a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0V12Zm2.25-3a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0V9.75A.75.75 0 0 1 13.5 9Zm3.75-1.5a.75.75 0 0 0-1.5 0v9a.75.75 0 0 0 1.5 0v-9Z" clip-rule="evenodd" />
+            </svg>
+        </mijnui:button>
+
         <mijnui:button  wire:navigate  href="{{ route('about') }}"
             mijnui-sidebar-parent=""
             title="Info"
@@ -75,27 +112,73 @@
         </mijnui:list>
     </mijnui:sidebar.double.content>
 
-    <mijnui:sidebar.double.content mijnui-sidebar-child="router" title="Router Management">
+    @php
+     $router = request()->route('router');
+     $routerTitle = $router ? $router->name : 'Router Management';
+    @endphp
+    <mijnui:sidebar.double.content mijnui-sidebar-child="router" title="{{$routerTitle}}">
         <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
             @php
                 $routerRoutes = [
                     'routers.dashboard',
                     'radius.index', 'radius.create', 'radius.edit',
-                    'radcheck.index', 'radcheck.create', 'radcheck.edit',
-                    'ppp_profiles.index'
+                    'routers.dhcp-releases',
                 ];
             @endphp
 
             @if(!in_array(request()->route()->getName(), $routerRoutes))
                 <mijnui:list.item href="{{ route('routers.index') }}" :active="request()->routeIs('routers.index')" wire:navigate>Routers</mijnui:list.item>
+                <mijnui:list.item href="{{ route('routers.nas.index') }}" :active="request()->routeIs('routers.nas.index')" wire:navigate>NAS</mijnui:list.item>
             @else
                 <mijnui:list.item href="{{ route('routers.dashboard', ['router' => request()->route('router')]) }}" :active="request()->routeIs('routers.dashboard')" wire:navigate>Dashboard</mijnui:list.item>
+                <mijnui:list.item href="{{ route('routers.dhcp-releases', ['router' => request()->route('router')]) }}" :active="request()->routeIs('routers.dhcp-releases')" wire:navigate>DHCP Releases</mijnui:list.item>
                 <mijnui:list.item href="{{ route('radius.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('radius.*')" wire:navigate>Radius</mijnui:list.item>
-                <mijnui:list.item href="{{ route('radcheck.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('radcheck.*')" wire:navigate>User Account</mijnui:list.item>
-                <mijnui:list.item href="{{ route('ppp_profiles.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('ppp_profiles.*')" wire:navigate>Packages</mijnui:list.item>
+                <mijnui:list.item href="{{ route('routers.network-logs', ['router' => request()->route('router')]) }}" :active="request()->routeIs('routers.network-logs')" wire:navigate>Network Logs</mijnui:list.item>
+{{--                <mijnui:list.item href="{{ route('radcheck.index',) }}" :active="request()->routeIs('radcheck.*')" wire:navigate>User Account</mijnui:list.item>--}}
+{{--                <mijnui:list.item href="{{ route('ppp_profiles.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('ppp_profiles.*')" wire:navigate>Packages</mijnui:list.item>--}}
                 <mijnui:list.item href="{{ route('routers.index') }}" :active="request()->routeIs('routers.index')" wire:navigate>Back Router List</mijnui:list.item>
             @endif
 
+        </mijnui:list>
+    </mijnui:sidebar.double.content>
+
+    <mijnui:sidebar.double.content mijnui-sidebar-child="client-account" title="User Management">
+        <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
+            <mijnui:list.item
+                href="{{ route('radcheck.index', ['serviceType' => 'pppoe']) }}"
+                :active="request()->routeIs('radcheck.index') && request('serviceType') === 'pppoe'"
+                wire:navigate>
+                PPPoE Accounts
+            </mijnui:list.item>
+
+            <mijnui:list.item
+                href="{{ route('radcheck.index', ['serviceType' => 'hotspot']) }}"
+                :active="request()->routeIs('radcheck.index') && request('serviceType') === 'hotspot'"
+                wire:navigate>
+                Hotspot Accounts
+            </mijnui:list.item>
+        </mijnui:list>
+    </mijnui:sidebar.double.content>
+
+
+
+    <mijnui:sidebar.double.content mijnui-sidebar-child="profile" title="Profile Management">
+        <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
+            <mijnui:list.item href="{{route('ppp_profiles.index')}}" :active="request()->routeIs('ppp_profiles.index')" wire:navigate>PPPoE Profiles</mijnui:list.item>
+            <mijnui:list.item href="{{route('hotspot_profiles.index')}}" :active="request()->routeIs('hotspot.index')" wire:navigate>Hotspot Profile</mijnui:list.item>
+        </mijnui:list>
+    </mijnui:sidebar.double.content>
+
+    <mijnui:sidebar.double.content mijnui-sidebar-child="reports" title="Reports">
+        <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
+            <mijnui:list.item href="{{route('reports.radius.log')}}" :active="request()->routeIs('reports.radius.log')" wire:navigate>Radius Connection Attempts</mijnui:list.item>
+        </mijnui:list>
+    </mijnui:sidebar.double.content>
+
+    <mijnui:sidebar.double.content mijnui-sidebar-child="status" title="Status">
+        <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
+            <mijnui:list.item href="{{route('status.server')}}" :active="request()->routeIs('status.server')" wire:navigate>Server Status</mijnui:list.item>
+            <mijnui:list.item href="{{route('status.services')}}" :active="request()->routeIs('status.services')" wire:navigate>Services Status</mijnui:list.item>
         </mijnui:list>
     </mijnui:sidebar.double.content>
 

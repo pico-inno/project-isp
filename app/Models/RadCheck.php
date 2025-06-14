@@ -27,10 +27,22 @@ class RadCheck extends Model
         return $this->hasOneThrough(
             PppProfile::class,
             RadAccPackage::class,
-            'radcheck_id',       // Foreign key on RadAccPackage
+            'radcheck_username',       // Foreign key on RadAccPackage
             'id',                // Foreign key on PppProfile
             'id',                // Local key on RadCheck
             'ppp_profiles_id'    // Local key on RadAccPackage
+        );
+    }
+
+    public function hotspotProfile()
+    {
+        return $this->hasOneThrough(
+            HotspotProfile::class,
+            RadAccPackage::class,
+            'radcheck_username',       // Foreign key on RadAccPackage
+            'id',                // Foreign key on PppProfile
+            'id',                // Local key on RadCheck
+            'hotspot_profiles_id'    // Local key on RadAccPackage
         );
     }
 

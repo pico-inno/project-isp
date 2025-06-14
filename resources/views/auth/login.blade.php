@@ -15,16 +15,23 @@
                     <mijnui:alert.description class="pl-0">{{ session('status') }}</mijnui:alert.description>
                 </mijnui:alert>
             @endif
+            @if (env('APP_ENV') !== 'production')
+                <mijnui:alert color="error" class="mb-4">
+                    <mijnui:alert.description class="pl-0">
+                        Warning: You are running in <strong>{{ env('APP_ENV') }}</strong> mode. Be careful with any changes.
+                    </mijnui:alert.description>
+                </mijnui:alert>
+            @endif
+
             <mijnui:card.content>
                 <form method="POST" action="{{ route('login') }}" class="space-y-4">
                         @csrf
                     <div>
-                        <mijnui:input type="email" id="email" label="Email" wire:model="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                        <mijnui:input type="email" id="email" label="Email" wire:model="email" name="email" :value="old('email', env('APP_ENV') === 'local' ? 'admin@app.com' : '')" required autofocus autocomplete="username" />
                     </div>
 
                     <div>
-                        <mijnui:input type="password" id="password" label="Password" wire:model="password"  name="password"
-                                      required autocomplete="current-password"/>
+                        <mijnui:input type="password" id="password" label="Password" wire:model="password" :value="env('APP_ENV') === 'local' ? 'password' : ''" name="password" required autocomplete="current-password"/>
                     </div>
 
 

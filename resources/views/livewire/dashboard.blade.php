@@ -44,6 +44,20 @@
             </mijnui:card.content>
         </mijnui:card>
 
+
+        <!-- Router Card -->
+        <mijnui:card class="max-w-80 hover:shadow-lg transition-shadow duration-200">
+            <mijnui:card.header>
+                <span class="inline-flex h-10 w-10 items-center justify-center gap-1 rounded-full bg-purple-100 p-0 text-sm text-purple-600 sm:h-12 sm:w-12">
+                    <i class="fa-solid fa-layer-group"></i>
+                </span>
+            </mijnui:card.header>
+            <mijnui:card.content>
+                <p class="text-sm font-medium text-muted-text">Total Routers</p>
+                <h3 class="text-2xl font-semibold text-gray-900">{{ $totalRouter }}</h3>
+            </mijnui:card.content>
+        </mijnui:card>
+
         <!-- Add more cards here as needed -->
     </div>
 </div>

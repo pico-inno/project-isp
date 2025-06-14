@@ -3,11 +3,11 @@
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
             <mijnui:breadcrumbs>
-                <mijnui:breadcrumbs.item wire:navigate href="{{route('routers.index')}}">Client Accounts</mijnui:breadcrumbs.item>
-                <mijnui:breadcrumbs.item isLast>PPPoE Account</mijnui:breadcrumbs.item>
+                <mijnui:breadcrumbs.item wire:navigate href="{{route('hotspot_profiles.index')}}">Profiles</mijnui:breadcrumbs.item>
+                <mijnui:breadcrumbs.item isLast>List</mijnui:breadcrumbs.item>
             </mijnui:breadcrumbs>
             <h2 class="text-2xl font-semibold mt-2">
-                {{ $serviceType === 'pppoe' ? 'PPPoeE' : 'Hotspot' }} Account List
+                Packages List
             </h2>
         </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="w-full sm:w-auto sm:flex-1 max-w-xl">
             <mijnui:input
                 wire:model.live.debounce.300ms="search"
-                placeholder="Search users by name or email..."
+                placeholder="Search packages by name..."
                 icon="fa-solid fa-magnifying-glass"
             />
         </div>
@@ -26,15 +26,15 @@
             <mijnui:button
                 color="primary"
                 size="md"
+                href="{{ route('hotspot_profiles.create') }}"
                 wire:navigate
-                href="{{ route('radcheck.create', ['serviceType' => $serviceType]) }}"
                 class="w-full sm:w-auto"
             >
                 <span class="flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
                     </svg>
-                    New Account
+                    New Package
                 </span>
             </mijnui:button>
         </div>
@@ -44,37 +44,34 @@
     <div class="overflow-hidden">
         <mijnui:table class="min-w-full divide-y divide-gray-200">
             <mijnui:table.columns class="bg-gray-50">
-                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/5">Username</mijnui:table.column>
-                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Secret</mijnui:table.column>
-                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6">Profile</mijnui:table.column>
+                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/5">Name</mijnui:table.column>
+                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Bandwidth</mijnui:table.column>
+                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6">Share Users</mijnui:table.column>
+                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6">Session</mijnui:table.column>
                 <mijnui:table.column class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-1/5">Actions</mijnui:table.column>
             </mijnui:table.columns>
 
             <mijnui:table.rows class="bg-white divide-y divide-gray-200">
-                @forelse ($radAcc as $account)
-                    <mijnui:table.row wire:key="radacc-{{ $account->id }}" >
+                @forelse ($profiles as $profile)
+                    <mijnui:table.row wire:key="profile-{{ $profile->id }}" >
                         <mijnui:table.cell class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm font-medium text-gray-900">{{ $account->username }}</div>
+                            <div class="text-sm font-medium text-gray-900">{{ $profile->name }}</div>
                         </mijnui:table.cell>
                         <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $account->value }}
+                            {{ $profile->rate_limit }}
                         </mijnui:table.cell>
-                        <mijnui:table.cell class="px-6 py-4 whitespace-nowrap">
-                            <mijnui:badge
-                                size="xs"
-                                color="info"
-                                outline
-                                rounded="full"
-                            >
-                                {{ $account->pppProfile?->name ?? 'No Profile' }}
-                            </mijnui:badge>
+                        <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            {{ $profile->shared_users }}
+                        </mijnui:table.cell>
+                        <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            {{ $profile->session_timeout }}
                         </mijnui:table.cell>
                         <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div class="flex items-center justify-end space-x-2">
                                 <mijnui:button
                                     size="xs"
                                     color="secondary"
-                                    href="{{ route('radcheck.edit', [$account->id]) }}"
+                                    href="{{ route('ppp_profiles.edit', $profile->id) }}"
                                     wire:navigate
                                     title="Edit"
                                 >
@@ -85,7 +82,7 @@
                                 <mijnui:button
                                     size="xs"
                                     color="danger"
-                                    wire:click="deleteAccount('{{ $account->username }}')"
+                                    wire:click="deletePackage({{ $profile->id }})"
                                     title="Delete"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,12 +99,12 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <h3 class="text-lg font-medium text-gray-900">No {{$serviceType === 'pppoe' ? 'PPPoE' : 'Hotspot'}} Account found</h3>
+                                <h3 class="text-lg font-medium text-gray-900">No packages found</h3>
                                 <p class="text-sm text-gray-500 max-w-md">
                                     @if($search)
-                                        Your search for "{{ $search }}" did not match any users. Try a different search term.
+                                        Your search for "{{ $search }}" did not match any packages. Try a different search term.
                                     @else
-                                        There are currently no users in the system. Click "Add Account" to create one.
+                                        There are currently no packages in the system. Click "New Package" to create one.
                                     @endif
                                 </p>
                             </div>
@@ -119,7 +116,7 @@
     </div>
 
     <!-- Pagination Section -->
-    @if($radAcc->hasPages())
+    @if($profiles->hasPages())
         {{--      Comming Soon--}}
     @endif
 </div>

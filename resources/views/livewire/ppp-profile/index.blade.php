@@ -3,9 +3,8 @@
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
             <mijnui:breadcrumbs>
-                <mijnui:breadcrumbs.item wire:navigate href="{{route('routers.index')}}">Routers</mijnui:breadcrumbs.item>
-                <mijnui:breadcrumbs.item wire:navigate href="{{route('routers.dashboard', $router->id)}}">{{ $router->name }}</mijnui:breadcrumbs.item>
-                <mijnui:breadcrumbs.item isLast>Packages</mijnui:breadcrumbs.item>
+                <mijnui:breadcrumbs.item wire:navigate href="{{route('ppp_profiles.index')}}">Profiles</mijnui:breadcrumbs.item>
+                <mijnui:breadcrumbs.item isLast>List</mijnui:breadcrumbs.item>
             </mijnui:breadcrumbs>
             <h2 class="text-2xl font-semibold mt-2">
                 Packages List
@@ -27,7 +26,7 @@
             <mijnui:button
                 color="primary"
                 size="md"
-                href="{{ route('ppp_profiles.create', $router->id) }}"
+                href="{{ route('ppp_profiles.create') }}"
                 wire:navigate
                 class="w-full sm:w-auto"
             >
@@ -46,7 +45,7 @@
         <mijnui:table class="min-w-full divide-y divide-gray-200">
             <mijnui:table.columns class="bg-gray-50">
                 <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/5">Name</mijnui:table.column>
-                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Bandwidh</mijnui:table.column>
+                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Bandwidth</mijnui:table.column>
                 <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6">Price</mijnui:table.column>
                 <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6">Validity Days</mijnui:table.column>
                 <mijnui:table.column class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-1/5">Actions</mijnui:table.column>
@@ -72,7 +71,7 @@
                                 <mijnui:button
                                     size="xs"
                                     color="secondary"
-                                    href="{{ route('ppp_profiles.edit', [$router->id, $profile->id]) }}"
+                                    href="{{ route('ppp_profiles.edit', $profile->id) }}"
                                     wire:navigate
                                     title="Edit"
                                 >

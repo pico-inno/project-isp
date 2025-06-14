@@ -78,6 +78,21 @@
             }
         })
     });
+
+    let mijnuiSidebarOpen = localStorage.getItem('mijnuiSidebarOpen');
+    if (mijnuiSidebarOpen === null) {
+        localStorage.setItem('mijnuiSidebarOpen', 'false');
+        mijnuiSidebarOpen = 'false';
+    }
+
+    mijnuiSidebarOpen = (mijnuiSidebarOpen === 'true');
+
+    let mijnuiActiveContent = localStorage.getItem('mijnuiActiveContent');
+    if (mijnuiActiveContent === null) {
+        mijnuiActiveContent = 'dashboard';
+        localStorage.setItem('mijnuiActiveContent', mijnuiActiveContent);
+    }
+
 </script>
 @stack('scripts')
 </body>
