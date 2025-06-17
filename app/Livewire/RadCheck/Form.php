@@ -26,7 +26,7 @@ class Form extends Component
     public $value;
 
     public $attributesData = [];
-    public $searchVendor = '';
+    public $searchVendor = 'custom_attributes';
     public $dictionaryOptions = [];
     public $vendorOptions = [];
 
@@ -154,9 +154,11 @@ class Form extends Component
             DB::transaction(function () {
                 $data = $this->prepareRadiusData();
 
-                $this->isEdit
-                    ? $this->radCheck->update($data)
-                    : RadCheck::create($data);
+                if ($this->isEdit) {
+                    $this->radCheck->update($data);
+                } else {
+                    $this->radCheck = RadCheck::create($data);
+                }
 
                 RadCheck::where('username', $this->radCheck->username)
                     ->where('id', '!=', $this->radCheck->id)

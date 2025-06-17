@@ -38,7 +38,7 @@
                         wire:model.live="authenticationType"
                         label="Authentication Type"
                         :disabled="$isEdit"
-                        native
+
                     >
                             <mijnui:select.option value="username_password">Username + Password</mijnui:select.option>
                             <mijnui:select.option value="pin">PIN Code</mijnui:select.option>
@@ -75,7 +75,8 @@
                                 wire:model.live="passwordType"
                                 label="Password Type"
                                 :disabled="$isEdit"
-                                native >
+                                disabled
+                                 >
                                 <mijnui:select.option value="Cleartext-Password">Cleartext</mijnui:select.option>
                                 <mijnui:select.option value="MD5-Password">MD5-Password</mijnui:select.option>
                                 <mijnui:select.option value="SHA1-Password">SHA1</mijnui:select.option>
@@ -111,8 +112,8 @@
                             <mijnui:select
                                 wire:model.live="searchVendor"
                                 label="Vendor Dictionary"
-                                native >
-                                <mijnui:select.option value="custom_attributes" selected>Custom Attribute</mijnui:select.option>
+                                 >
+                                <mijnui:select.option value="custom_attributes">Custom Attribute</mijnui:select.option>
                                 @foreach($vendorOptions as $value => $label)
                                     <mijnui:select.option value="{{ $value }}">{{ $label }}</mijnui:select.option>
                                 @endforeach
@@ -153,7 +154,7 @@
                                     <mijnui:select
                                         wire:model="attributesData.{{ $index }}.op"
                                         label="OP"
-                                        native >
+                                         >
                                             <mijnui:select.option value=":=">:=</mijnui:select.option>
                                             <mijnui:select.option value="=">=</mijnui:select.option>
                                             <mijnui:select.option value="+=">+=</mijnui:select.option>
@@ -173,7 +174,7 @@
                                     <mijnui:select
                                         wire:model="attributesData.{{ $index }}.table"
                                         label="Table"
-                                        native >
+                                         >
                                         <mijnui:select.option value="check">Check</mijnui:select.option>
                                         <mijnui:select.option value="reply">Reply</mijnui:select.option>
                                     </mijnui:select>

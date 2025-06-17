@@ -2232,12 +2232,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mijn-ui/mijn-ui-tall.git",
-                "reference": "df62045b3663fe4e897647fe2336f9976eb7c5c9"
+                "reference": "8b715788ba28f15fe8d19732ee14d06fd91af659"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mijn-ui/mijn-ui-tall/zipball/df62045b3663fe4e897647fe2336f9976eb7c5c9",
-                "reference": "df62045b3663fe4e897647fe2336f9976eb7c5c9",
+                "url": "https://api.github.com/repos/mijn-ui/mijn-ui-tall/zipball/8b715788ba28f15fe8d19732ee14d06fd91af659",
+                "reference": "8b715788ba28f15fe8d19732ee14d06fd91af659",
                 "shasum": ""
             },
             "require": {
@@ -2272,7 +2272,7 @@
                 "issues": "https://github.com/mijn-ui/mijn-ui-tall/issues",
                 "source": "https://github.com/mijn-ui/mijn-ui-tall/tree/main"
             },
-            "time": "2025-06-07T11:05:29+00:00"
+            "time": "2025-06-17T05:31:05+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6374,16 +6374,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.18.2",
+            "version": "2.18.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "89dabca1490bc77dbcab41c2b20968c7e44bf7c3"
+                "reference": "59a123a3d459c5a23055802237cb317f609867e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/89dabca1490bc77dbcab41c2b20968c7e44bf7c3",
-                "reference": "89dabca1490bc77dbcab41c2b20968c7e44bf7c3",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/59a123a3d459c5a23055802237cb317f609867e5",
+                "reference": "59a123a3d459c5a23055802237cb317f609867e5",
                 "shasum": ""
             },
             "require": {
@@ -6433,7 +6433,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.18.2"
+                "source": "https://github.com/filp/whoops/tree/2.18.3"
             },
             "funding": [
                 {
@@ -6441,7 +6441,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-06-11T20:42:19+00:00"
+            "time": "2025-06-16T00:02:10+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",

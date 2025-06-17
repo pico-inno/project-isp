@@ -72,6 +72,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/{radCheck}/edit', \App\Livewire\RadCheck\Form::class)->name('client-users.edit')->lazy()->middleware('permission:update,Router');
     });
 
+    Route::prefix('batch')->group(function () {
+        Route::get('/client-users/', \App\Livewire\RadCheck\Index::class)->name('batch.client-users.index')->lazy()->middleware('permission:update,Router');
+        Route::get('/client-users/create', \App\Livewire\RadCheck\Form::class)->name('batch.client-users.create')->lazy()->middleware('permission:update,Router');
+        Route::get('/client-users/{radCheck}/edit', \App\Livewire\RadCheck\Form::class)->name('batch.client-users.edit')->lazy()->middleware('permission:update,Router');
+    });
+
     Route::prefix('attributes')->group(function () {
         Route::get('/', \App\Livewire\Attribute\Index::class)->name('attributes.index')->lazy()->middleware('permission:update,Router');
         Route::get('/create', \App\Livewire\Attribute\Form::class)->name('attributes.create')->lazy()->middleware('permission:update,Router');

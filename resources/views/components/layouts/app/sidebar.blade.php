@@ -152,8 +152,8 @@
             </mijnui:list.item>
 
             <mijnui:list.item
-                href="{{ route('radcheck.index', ['serviceType' => 'pppoe']) }}"
-                :active="request()->routeIs('radcheck.index') && request('serviceType') === 'pppoe'"
+                href="{{ route('batch.client-users.index') }}"
+                :active="request()->routeIs('batch.client-users.*')"
                 wire:navigate>
                 Batch Users
             </mijnui:list.item>
