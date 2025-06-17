@@ -1,0 +1,74 @@
+[
+  {
+    "id": "4578",
+    "Type": "integer",
+    "Attribute": "HP-Privelege-Level",
+    "Value": null,
+    "Format": null,
+    "Vendor": "HP",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4579",
+    "Type": "string",
+    "Attribute": "HP-Command-String",
+    "Value": null,
+    "Format": null,
+    "Vendor": "HP",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4580",
+    "Type": "integer",
+    "Attribute": "HP-Command-Exception",
+    "Value": null,
+    "Format": null,
+    "Vendor": "HP",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4581",
+    "Type": "string",
+    "Attribute": "HP-Port-Priority-Regeneration-Table",
+    "Value": null,
+    "Format": null,
+    "Vendor": "HP",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4582",
+    "Type": "integer",
+    "Attribute": "HP-Bandwidth-Max-Ingress",
+    "Value": null,
+    "Format": null,
+    "Vendor": "HP",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4583",
+    "Type": "string",
+    "Attribute": "HP-Nas-Filter-Rule",
+    "Value": null,
+    "Format": null,
+    "Vendor": "HP",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

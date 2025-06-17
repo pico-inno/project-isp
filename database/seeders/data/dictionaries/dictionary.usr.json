@@ -1,0 +1,98 @@
+[
+  {
+    "id": "513",
+    "Type": "integer",
+    "Attribute": "Multi-Link-Flag",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.usr",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "514",
+    "Type": "integer",
+    "Attribute": "Char-Noecho",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.usr",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "515",
+    "Type": null,
+    "Attribute": "Termination-Action",
+    "Value": "Manage-Resources",
+    "Format": null,
+    "Vendor": "dictionary.usr",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "516",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Modem-Start",
+    "Format": null,
+    "Vendor": "dictionary.usr",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "517",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Modem-Stop",
+    "Format": null,
+    "Vendor": "dictionary.usr",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "518",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Cancel",
+    "Format": null,
+    "Vendor": "dictionary.usr",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "519",
+    "Type": null,
+    "Attribute": "Multi-Link-Flag",
+    "Value": "True",
+    "Format": null,
+    "Vendor": "dictionary.usr",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "520",
+    "Type": null,
+    "Attribute": "Multi-Link-Flag",
+    "Value": "False",
+    "Format": null,
+    "Vendor": "dictionary.usr",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

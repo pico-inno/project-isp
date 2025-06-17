@@ -2,6 +2,7 @@
 
 namespace App\Livewire\RadCheck;
 
+use App\Models\Dictionary;
 use App\Models\HotspotProfile;
 use App\Models\PppProfile;
 use App\Models\RadAccPackage;
@@ -9,6 +10,7 @@ use App\Models\RadCheck;
 use App\Models\RadReply;
 use App\Traits\HandlesFlashMessages;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Form extends Component
@@ -18,153 +20,237 @@ class Form extends Component
     public $isEdit = false;
     public RadCheck $radCheck;
 
+    public $authenticationType = 'username_password'; // Default value
+    public $passwordType = 'Cleartext-Password'; // Default value
     public $username;
     public $value;
-    public $selectedPackage;
-    public $packages = [];
-    public $serviceType;
-    public $attribute;
-    public $op;
 
-    protected function rules()
+    public $attributesData = [];
+    public $searchVendor = '';
+    public $dictionaryOptions = [];
+    public $vendorOptions = [];
+
+    protected $rules = [
+        'authenticationType' => 'required|in:username_password,pin,mac',
+        'username' => 'required|string|max:255',
+        'value' => 'nullable|string|max:255',
+        'passwordType' => 'required|in:Cleartext-Password,NT-Password,MD5-Password,SHA1-Password,User-Password,Crypt-Password,Auth-Type',
+    ];
+
+    public function mount($radCheck = null)
     {
-        return [
-            'username' => 'required|string|max:255|unique:radcheck,username' . ($this->isEdit ? ',' . $this->radCheck->id : ''),
-            'value' => 'required|string|min:6',
-            'selectedPackage' => 'required|exists:' . ($this->serviceType === 'pppoe' ? 'ppp_profiles' : 'hotspot_profiles') . ',id',
-        ];
-    }
-
-    public function mount($serviceType = null, $radCheck = null)
-    {
-        $this->serviceType = $serviceType;
-
-        if ($this->serviceType === 'pppoe') {
-            $this->packages = PppProfile::all();
-        } elseif ($this->serviceType === 'hotspot') {
-            $this->packages = HotspotProfile::all();
+        // Load vendor options
+        $this->vendorOptions = Dictionary::select('vendor')
+            ->whereNotNull('vendor')
+            ->distinct()
+            ->orderBy('vendor')
+            ->pluck('vendor', 'vendor')
+            ->toArray();
+        if ($this->searchVendor) {
+            $this->loadDictionaryOptions();
+        }
+        if (!$this->isEdit && empty($this->attributesData)) {
+            $this->attributesData = [[
+                'attribute' => '',
+                'value' => '',
+                'op' => ':=',
+                'table' => 'check'
+            ]];
         }
 
         if ($radCheck) {
-            $this->radCheck = $radCheck;
             $this->isEdit = true;
-            $this->fill($this->radCheck->only(['username', 'attribute', 'op', 'value']));
+            $this->radCheck = $radCheck;
+            $this->username = $radCheck->username;
+            $this->value = $radCheck->value;
+            $this->passwordType = $radCheck->attribute;
 
-            // Get current package from radreply
-            $reply = RadReply::where('username', $this->radCheck->username)
-                ->where('attribute', 'Mikrotik-Group')
-                ->first();
-
-            if ($reply) {
-                if ($this->serviceType === 'pppoe') {
-                    $this->selectedPackage = PppProfile::where('mikrotik_profile', $reply->value)
-                        ->first()?->id;
-                } elseif ($this->serviceType === 'hotspot') {
-                    $this->selectedPackage = HotspotProfile::where('name', $reply->value)
-                        ->first()?->id;
-                }
+            // Determine authentication type based on attribute
+            if (str_contains($radCheck->attribute, 'Password')) {
+                $this->authenticationType = 'username_password';
+            } elseif ($radCheck->attribute === 'Auth-Types') {
+                $this->authenticationType = 'pin';
+            } elseif ($radCheck->attribute === 'Auth-Type') {
+                $this->authenticationType = 'mac';
             }
-        } else {
-            $this->radCheck = new RadCheck();
-            $this->attribute = 'Cleartext-Password';
-            $this->op = ':=';
+            $this->loadAdditionalAttributes();
         }
+    }
+
+    protected function loadAdditionalAttributes()
+    {
+
+        $checkAttributes = RadCheck::where('username', $this->username)
+            ->when($this->isEdit, function ($query) {
+                $query->where('id', '!=', $this->radCheck->id ?? null);
+            })
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'attribute' => $item->attribute,
+                    'value' => $item->value,
+                    'op' => $item->op,
+                    'table' => 'check'
+                ];
+            })->toArray();
+
+
+        $replyAttributes = RadReply::where('username', $this->username)
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'attribute' => $item->attribute,
+                    'value' => $item->value,
+                    'op' => $item->op,
+                    'table' => 'reply'
+                ];
+            })->toArray();
+
+        $this->attributesData = array_merge($checkAttributes, $replyAttributes);
+    }
+
+    public function loadDictionaryOptions()
+    {
+        $query = Dictionary::query();
+
+        if ($this->searchVendor) {
+            $query->where('vendor', $this->searchVendor);
+        }
+
+        $this->dictionaryOptions = $query
+            ->orderBy('attribute')
+            ->get()
+            ->toArray();
+    }
+
+
+    public function updatedSearchVendor()
+    {
+        $this->loadDictionaryOptions();
+    }
+
+    public function addAttribute()
+    {
+        $this->attributesData[] = [
+            'attribute' => '',
+            'value' => '',
+            'op' => ':=',
+            'table' => 'check'
+        ];
+    }
+
+    public function removeAttribute($index)
+    {
+        unset($this->attributesData[$index]);
+        $this->attributesData = array_values($this->attributesData);
     }
 
     public function save()
     {
         $this->validate();
 
+
         try {
             DB::transaction(function () {
-                // Save password record
-                $this->radCheck->fill([
-                    'username' => $this->username,
-                    'attribute' => $this->attribute,
-                    'op' => $this->op,
-                    'value' => $this->value,
-                ])->save();
+                $data = $this->prepareRadiusData();
 
-                // Set Service-Type
-                $serviceTypeValue = match ($this->serviceType) {
-                    'pppoe' => 'Framed-User',
-                    'hotspot' => 'Login-User',
-                    default => 'Framed-User'
-                };
+                $this->isEdit
+                    ? $this->radCheck->update($data)
+                    : RadCheck::create($data);
 
-                RadCheck::updateOrCreate(
-                    [
-                        'username' => $this->username,
-                        'attribute' => 'Service-Type',
-                    ],
-                    [
-                        'op' => ':=',
-                        'value' => $serviceTypeValue,
-                    ]
-                );
+                RadCheck::where('username', $this->radCheck->username)
+                    ->where('id', '!=', $this->radCheck->id)
+                    ->delete();
 
-                // Get the selected package
-                $package = $this->serviceType === 'pppoe'
-                    ? PppProfile::find($this->selectedPackage)
-                    : HotspotProfile::find($this->selectedPackage);
+                RadReply::where('username', $this->radCheck->username)
+                    ->delete();
 
-                // Save package reference
-                RadAccPackage::updateOrCreate(
-                    [
-                        'radcheck_username' => $this->username,
-                        'ppp_profiles_id' => $this->serviceType === 'pppoe' ? $package->id : null,
-                        'hotspot_profiles_id' => $this->serviceType === 'hotspot' ? $package->id : null,
-                    ],
-                    [
-                        'expires_at' => now()->addDays($package->validity_days),
-                        'is_active' => true,
-                    ]
-                );
+                // Save new attributes
+                foreach ($this->attributesData as $attribute) {
+                    if (!empty($attribute['attribute']) && !empty($attribute['value'])) {
+                        $data = [
+                            'username' => $this->radCheck->username,
+                            'attribute' => $attribute['attribute'],
+                            'op' => $attribute['op'],
+                            'value' => $attribute['value'],
+                        ];
 
-                // Set Mikrotik-Group
-                RadReply::updateOrCreate(
-                    [
-                        'username' => $this->username,
-                        'attribute' => 'Mikrotik-Group'
-                    ],
-                    [
-                        'op' => ':=',
-                        'value' => $this->serviceType === 'pppoe' ? $package->mikrotik_profile : $package->name
-                    ]
-                );
-
-                // Set Session-Timeout
-                RadReply::updateOrCreate(
-                    [
-                        'username' => $this->username,
-                        'attribute' => 'Session-Timeout'
-                    ],
-                    [
-                        'op' => ':=',
-                        'value' => $package->validity_days * 86400
-                    ]
-                );
-
-                // Set Rate Limit
-                if ($this->serviceType === 'pppoe') {
-                    RadReply::updateOrCreate(
-                        [
-                            'username' => $this->username,
-                            'attribute' => 'Mikrotik-Rate-Limit'
-                        ],
-                        [
-                            'op' => ':=',
-                            'value' => "{$package->upload_speed}/{$package->download_speed}"
-                        ]
-                    );
+                        if ($attribute['table'] === 'check') {
+                            RadCheck::create($data);
+                        } else {
+                            RadReply::create($data);
+                        }
+                    }
                 }
+
             });
 
             $this->flashSuccess($this->isEdit ? 'User Account updated successfully!' : 'User Account created successfully!');
-            return $this->redirect(route('radcheck.index'), navigate: true);
+            return $this->redirect(route('client-users.index'), navigate: true);
         } catch (\Exception $e) {
             $this->flashError('Error saving account: ' . $e->getMessage());
         }
+    }
+
+    private function prepareRadiusData(): array
+    {
+        return match ($this->authenticationType) {
+            'username_password' => $this->prepareUsernamePasswordData(),
+            'mac' => $this->prepareMacAuthData(),
+            'pin' => $this->preparePinAuthData(),
+            default => throw new \InvalidArgumentException("Unsupported authentication type"),
+        };
+    }
+
+    private function prepareUsernamePasswordData(): array
+    {
+        $data = [
+            'username' => $this->username,
+            'attribute' => $this->passwordType,
+            'op' => ':=',
+        ];
+
+        if (!$this->isEdit) {
+            $data['value'] = $this->processPasswordValue($this->passwordType, $this->value);
+        }
+
+        return $data;
+    }
+
+    private function prepareMacAuthData(): array
+    {
+        $normalizedMac = strtolower(str_replace(['-', ':', ' '], '', $this->username));
+        $formattedMac = wordwrap($normalizedMac, 2, ':', true);
+
+        return [
+            'username' => $formattedMac,
+            'attribute' => 'Auth-Type',
+            'op' => ':=',
+            'value' => 'Accept',
+        ];
+    }
+
+    private function preparePinAuthData(): array
+    {
+        return [
+            'username' => $this->username,
+            'attribute' => 'Auth-Type',
+            'op' => ':=',
+            'value' => 'Accept',
+        ];
+    }
+
+    protected function processPasswordValue($passwordType, $plainPassword)
+    {
+        return match($passwordType) {
+            'Cleartext-Password' => $plainPassword, // Stored in plain text
+            'MD5-Password' => hash('md5', $plainPassword),
+            'SHA1-Password' => hash('sha1', $plainPassword),
+            'Crypt-Password' => crypt($plainPassword, '$1$' . Str::random(8)), // Using MD5 crypt
+            'NT-Password' => strtoupper(bin2hex(mhash(MHASH_MD4, iconv('UTF-8', 'UTF-16LE', $plainPassword)))),
+            'User-Password' => $plainPassword, // Typically same as Cleartext
+            default => $plainPassword,
+        };
     }
 
     public function render()

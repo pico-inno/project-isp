@@ -1,0 +1,26 @@
+[
+  {
+    "id": "2392",
+    "Type": "string",
+    "Attribute": "Colubris-AVPair",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Colubris",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2393",
+    "Type": "integer",
+    "Attribute": "Colubris-Intercept",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Colubris",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

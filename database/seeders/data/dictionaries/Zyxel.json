@@ -1,0 +1,86 @@
+[
+  {
+    "id": "408",
+    "Type": "integer",
+    "Attribute": "Zyxel-Callback-Option",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Zyxel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "409",
+    "Type": "integer",
+    "Attribute": "Zyxel-Callback-Phone-Source",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Zyxel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "410",
+    "Type": null,
+    "Attribute": "Zyxel-Callback-Phone-Source",
+    "Value": "Preconfigured",
+    "Format": null,
+    "Vendor": "Zyxel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "411",
+    "Type": null,
+    "Attribute": "Zyxel-Callback-Phone-Source",
+    "Value": "User",
+    "Format": null,
+    "Vendor": "Zyxel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "412",
+    "Type": null,
+    "Attribute": "Zyxel-Callback-Option",
+    "Value": "None",
+    "Format": null,
+    "Vendor": "Zyxel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "413",
+    "Type": null,
+    "Attribute": "Zyxel-Callback-Option",
+    "Value": "Optional",
+    "Format": null,
+    "Vendor": "Zyxel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "414",
+    "Type": null,
+    "Attribute": "Zyxel-Callback-Option",
+    "Value": "Mandatory",
+    "Format": null,
+    "Vendor": "Zyxel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

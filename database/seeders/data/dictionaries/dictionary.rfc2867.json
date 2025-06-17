@@ -1,0 +1,98 @@
+[
+  {
+    "id": "2699",
+    "Type": "string",
+    "Attribute": "Acct-Tunnel-Connection",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc2867",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2700",
+    "Type": "integer",
+    "Attribute": "Acct-Tunnel-Packets-Lost",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc2867",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2701",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Tunnel-Start",
+    "Format": null,
+    "Vendor": "dictionary.rfc2867",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2702",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Tunnel-Stop",
+    "Format": null,
+    "Vendor": "dictionary.rfc2867",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2703",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Tunnel-Reject",
+    "Format": null,
+    "Vendor": "dictionary.rfc2867",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2704",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Tunnel-Link-Start",
+    "Format": null,
+    "Vendor": "dictionary.rfc2867",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2705",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Tunnel-Link-Stop",
+    "Format": null,
+    "Vendor": "dictionary.rfc2867",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2706",
+    "Type": null,
+    "Attribute": "Acct-Status-Type",
+    "Value": "Tunnel-Link-Reject",
+    "Format": null,
+    "Vendor": "dictionary.rfc2867",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

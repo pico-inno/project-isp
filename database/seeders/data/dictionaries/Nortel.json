@@ -1,0 +1,98 @@
+[
+  {
+    "id": "352",
+    "Type": "integer",
+    "Attribute": "Passport-Command-Scope",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Nortel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "353",
+    "Type": "integer",
+    "Attribute": "Passport-Command-Impact",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Nortel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "354",
+    "Type": "integer",
+    "Attribute": "Passport-Customer-Identifier",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Nortel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "355",
+    "Type": "integer",
+    "Attribute": "Passport-Allowed-Access",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Nortel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "356",
+    "Type": "integer",
+    "Attribute": "Passport-AllowedOut-Access",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Nortel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "357",
+    "Type": "string",
+    "Attribute": "Passport-Login-Directory",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Nortel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "358",
+    "Type": "integer",
+    "Attribute": "Passport-Timeout-Protocol",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Nortel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "359",
+    "Type": "string",
+    "Attribute": "Passport-Role",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Nortel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

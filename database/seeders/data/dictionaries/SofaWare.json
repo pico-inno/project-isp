@@ -1,0 +1,50 @@
+[
+  {
+    "id": "228",
+    "Type": "string",
+    "Attribute": "SofaWare-Admin",
+    "Value": null,
+    "Format": null,
+    "Vendor": "SofaWare",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "229",
+    "Type": "string",
+    "Attribute": "SofaWare-VPN",
+    "Value": null,
+    "Format": null,
+    "Vendor": "SofaWare",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "230",
+    "Type": "string",
+    "Attribute": "SofaWare-Hotspot",
+    "Value": null,
+    "Format": null,
+    "Vendor": "SofaWare",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "231",
+    "Type": "string",
+    "Attribute": "SofaWare-UFP",
+    "Value": null,
+    "Format": null,
+    "Vendor": "SofaWare",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

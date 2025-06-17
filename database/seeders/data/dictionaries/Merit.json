@@ -1,0 +1,38 @@
+[
+  {
+    "id": "2909",
+    "Type": "string",
+    "Attribute": "Merit-Proxy-Action",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Merit",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2910",
+    "Type": "string",
+    "Attribute": "Merit-User-Id",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Merit",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2911",
+    "Type": "string",
+    "Attribute": "Merit-User-Realm",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Merit",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

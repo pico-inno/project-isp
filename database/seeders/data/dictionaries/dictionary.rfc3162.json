@@ -1,0 +1,74 @@
+[
+  {
+    "id": "3576",
+    "Type": "ipv6addr",
+    "Attribute": "NAS-IPv6-Address",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc3162",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3577",
+    "Type": "ifid",
+    "Attribute": "Framed-Interface-Id",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc3162",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3578",
+    "Type": "ipv6prefix",
+    "Attribute": "Framed-IPv6-Prefix",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc3162",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3579",
+    "Type": "ipv6addr",
+    "Attribute": "Login-IPv6-Host",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc3162",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3580",
+    "Type": "string",
+    "Attribute": "Framed-IPv6-Route",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc3162",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3581",
+    "Type": "string",
+    "Attribute": "Framed-IPv6-Pool",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc3162",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

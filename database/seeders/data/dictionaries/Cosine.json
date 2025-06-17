@@ -1,0 +1,98 @@
+[
+  {
+    "id": "2782",
+    "Type": "string",
+    "Attribute": "Cosine-Connection-Profile-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cosine",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2783",
+    "Type": "string",
+    "Attribute": "Cosine-Enterprise-ID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cosine",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2784",
+    "Type": "string",
+    "Attribute": "Cosine-Address-Pool-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cosine",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2785",
+    "Type": "integer",
+    "Attribute": "Cosine-DS-Byte",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cosine",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2786",
+    "Type": "octets",
+    "Attribute": "Cosine-VPI-VCI",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cosine",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2787",
+    "Type": "integer",
+    "Attribute": "Cosine-DLCI",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cosine",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2788",
+    "Type": "ipaddr",
+    "Attribute": "Cosine-LNS-IP-Address",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cosine",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2789",
+    "Type": "string",
+    "Attribute": "Cosine-CLI-User-Permission-ID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cosine",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

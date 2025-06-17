@@ -1,0 +1,74 @@
+[
+  {
+    "id": "3776",
+    "Type": "integer",
+    "Attribute": "Unix-FTP-UID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Unix",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3777",
+    "Type": "integer",
+    "Attribute": "Unix-FTP-GID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Unix",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3778",
+    "Type": "string",
+    "Attribute": "Unix-FTP-Home",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Unix",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3779",
+    "Type": "string",
+    "Attribute": "Unix-FTP-Shell",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Unix",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3780",
+    "Type": "string",
+    "Attribute": "Unix-FTP-Group-Names",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Unix",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3781",
+    "Type": "string",
+    "Attribute": "Unix-FTP-Group-Ids",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Unix",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

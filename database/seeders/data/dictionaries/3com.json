@@ -1,0 +1,110 @@
+[
+  {
+    "id": "4941",
+    "Type": "integer",
+    "Attribute": "3Com-User-Access-Level",
+    "Value": null,
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4942",
+    "Type": null,
+    "Attribute": "3Com-User-Access-Level",
+    "Value": "3Com-Visitor",
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4943",
+    "Type": null,
+    "Attribute": "3Com-User-Access-Level",
+    "Value": "3Com-Monitor",
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4944",
+    "Type": null,
+    "Attribute": "3Com-User-Access-Level",
+    "Value": "3Com-Manager",
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4945",
+    "Type": null,
+    "Attribute": "3Com-User-Access-Level",
+    "Value": "3Com-Administrator",
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4946",
+    "Type": "integer",
+    "Attribute": "3Com-Connect_Id",
+    "Value": null,
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4947",
+    "Type": "integer",
+    "Attribute": "3Com-NAS-Startup-Timestamp",
+    "Value": null,
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4948",
+    "Type": "string",
+    "Attribute": "3Com-Ip-Host-Addr",
+    "Value": null,
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4949",
+    "Type": "string",
+    "Attribute": "3Com-Product-ID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "3com",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

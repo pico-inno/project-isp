@@ -1,0 +1,74 @@
+[
+  {
+    "id": "3558",
+    "Type": "string",
+    "Attribute": "Aruba-User-Role",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Aruba",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3559",
+    "Type": "integer",
+    "Attribute": "Aruba-User-Vlan",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Aruba",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3560",
+    "Type": "integer",
+    "Attribute": "Aruba-Priv-Admin-User",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Aruba",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3561",
+    "Type": "string",
+    "Attribute": "Aruba-Admin-Role",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Aruba",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3562",
+    "Type": "string",
+    "Attribute": "Aruba-Essid-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Aruba",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3563",
+    "Type": "string",
+    "Attribute": "Aruba-Location-Id",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Aruba",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

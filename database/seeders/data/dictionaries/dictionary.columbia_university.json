@@ -1,0 +1,14 @@
+[
+  {
+    "id": "2406",
+    "Type": null,
+    "Attribute": "Service-Type",
+    "Value": "Sip-session",
+    "Format": null,
+    "Vendor": "dictionary.columbia_university",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

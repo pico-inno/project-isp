@@ -1,0 +1,62 @@
+[
+  {
+    "id": "4742",
+    "Type": "integer",
+    "Attribute": "RP-Upstream-Speed-Limit",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Roaring-Penguin",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4743",
+    "Type": "integer",
+    "Attribute": "RP-Downstream-Speed-Limit",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Roaring-Penguin",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4744",
+    "Type": "string",
+    "Attribute": "RP-HURL",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Roaring-Penguin",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4745",
+    "Type": "string",
+    "Attribute": "RP-MOTM",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Roaring-Penguin",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4746",
+    "Type": "integer",
+    "Attribute": "RP-Max-Sessions-Per-User",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Roaring-Penguin",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

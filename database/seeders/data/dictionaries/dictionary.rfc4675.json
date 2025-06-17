@@ -1,0 +1,74 @@
+[
+  {
+    "id": "492",
+    "Type": "integer",
+    "Attribute": "Egress-VLANID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc4675",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "493",
+    "Type": "integer",
+    "Attribute": "Ingress-Filters",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc4675",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "494",
+    "Type": "string",
+    "Attribute": "Egress-VLAN-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc4675",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "495",
+    "Type": "octets",
+    "Attribute": "User-Priority-Table",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc4675",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "496",
+    "Type": null,
+    "Attribute": "Ingress-Filters",
+    "Value": "Enabled",
+    "Format": null,
+    "Vendor": "dictionary.rfc4675",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "497",
+    "Type": null,
+    "Attribute": "Ingress-Filters",
+    "Value": "Disabled",
+    "Format": null,
+    "Vendor": "dictionary.rfc4675",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "2394",
+    "Type": "integer",
+    "Attribute": "CBBSM-Bandwidth",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cisco-BBSM",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

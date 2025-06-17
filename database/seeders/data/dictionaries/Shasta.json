@@ -1,0 +1,74 @@
+[
+  {
+    "id": "5881",
+    "Type": "integer",
+    "Attribute": "Shasta-User-Privilege",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Shasta",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5882",
+    "Type": "string",
+    "Attribute": "Shasta-Service-Profile",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Shasta",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5883",
+    "Type": "string",
+    "Attribute": "Shasta-VPN-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Shasta",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5884",
+    "Type": null,
+    "Attribute": "Shasta-User-Privilege",
+    "Value": "User",
+    "Format": null,
+    "Vendor": "Shasta",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5885",
+    "Type": null,
+    "Attribute": "Shasta-User-Privilege",
+    "Value": "Super-User",
+    "Format": null,
+    "Vendor": "Shasta",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5886",
+    "Type": null,
+    "Attribute": "Shasta-User-Privilege",
+    "Value": "SSuper-User",
+    "Format": null,
+    "Vendor": "Shasta",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

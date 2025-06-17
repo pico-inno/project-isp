@@ -1,0 +1,98 @@
+[
+  {
+    "id": "4950",
+    "Type": "string",
+    "Attribute": "Trapeze-VLAN-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Trapeze",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4951",
+    "Type": "string",
+    "Attribute": "Trapeze-Mobility-Profile",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Trapeze",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4952",
+    "Type": "string",
+    "Attribute": "Trapeze-Encryption-Type",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Trapeze",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4953",
+    "Type": "string",
+    "Attribute": "Trapeze-Time-Of-Day",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Trapeze",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4954",
+    "Type": "string",
+    "Attribute": "Trapeze-SSID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Trapeze",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4955",
+    "Type": "string",
+    "Attribute": "Trapeze-End-Date",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Trapeze",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4956",
+    "Type": "string",
+    "Attribute": "Trapeze-Start-Date",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Trapeze",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4957",
+    "Type": "string",
+    "Attribute": "Trapeze-URL",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Trapeze",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "5177",
+    "Type": "string",
+    "Attribute": "Juniper-Local-User-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Juniper",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5178",
+    "Type": "string",
+    "Attribute": "Juniper-Allow-Commands",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Juniper",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5179",
+    "Type": "string",
+    "Attribute": "Juniper-Deny-Commands",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Juniper",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5180",
+    "Type": "string",
+    "Attribute": "Juniper-Allow-Configuration",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Juniper",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5181",
+    "Type": "string",
+    "Attribute": "Juniper-Deny-Configuration",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Juniper",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

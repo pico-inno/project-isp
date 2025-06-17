@@ -64,5 +64,9 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'role_id' => $admin->id,
         ]);
+
+        $this->call([
+            DictionarySeeder::class,
+        ]);
     }
 }

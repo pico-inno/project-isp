@@ -66,6 +66,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/server', \App\Livewire\Status\Server::class)->name('status.server')->lazy()->middleware('permission:update,Router');
     });
 
+    Route::prefix('client-users')->group(function () {
+        Route::get('/', \App\Livewire\RadCheck\Index::class)->name('client-users.index')->lazy()->middleware('permission:update,Router');
+        Route::get('/create', \App\Livewire\RadCheck\Form::class)->name('client-users.create')->lazy()->middleware('permission:update,Router');
+        Route::get('/{radCheck}/edit', \App\Livewire\RadCheck\Form::class)->name('client-users.edit')->lazy()->middleware('permission:update,Router');
+    });
+
+    Route::prefix('attributes')->group(function () {
+        Route::get('/', \App\Livewire\Attribute\Index::class)->name('attributes.index')->lazy()->middleware('permission:update,Router');
+        Route::get('/create', \App\Livewire\Attribute\Form::class)->name('attributes.create')->lazy()->middleware('permission:update,Router');
+        Route::get('/{id}/edit', \App\Livewire\Attribute\Form::class)->name('attributes.edit')->lazy()->middleware('permission:update,Router');
+    });
+
     Route::get('/openwrt', function () {
         try {
             $client = new Client([

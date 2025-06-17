@@ -1,0 +1,74 @@
+[
+  {
+    "id": "5400",
+    "Type": "integer",
+    "Attribute": "Propel-Accelerate",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Propel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5401",
+    "Type": "string",
+    "Attribute": "Propel-Dialed-Digits",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Propel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5402",
+    "Type": "ipaddr",
+    "Attribute": "Propel-Client-IP-Address",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Propel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5403",
+    "Type": "ipaddr",
+    "Attribute": "Propel-Client-NAS-IP-Address",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Propel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5404",
+    "Type": "integer",
+    "Attribute": "Propel-Client-Source-ID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Propel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "5405",
+    "Type": "integer",
+    "Attribute": "Propel-Content-Filter-ID",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Propel",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

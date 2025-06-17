@@ -1,0 +1,110 @@
+[
+  {
+    "id": "2383",
+    "Type": "ipaddr",
+    "Attribute": "RedCreek-Tunneled-IP-Addr",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2384",
+    "Type": "ipaddr",
+    "Attribute": "RedCreek-Tunneled-IP-Netmask",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2385",
+    "Type": "ipaddr",
+    "Attribute": "RedCreek-Tunneled-Gateway",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2386",
+    "Type": "string",
+    "Attribute": "RedCreek-Tunneled-DNS-Server",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2387",
+    "Type": "string",
+    "Attribute": "RedCreek-Tunneled-WINS-Server1",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2388",
+    "Type": "string",
+    "Attribute": "RedCreek-Tunneled-WINS-Server2",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2389",
+    "Type": "string",
+    "Attribute": "RedCreek-Tunneled-HostName",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2390",
+    "Type": "string",
+    "Attribute": "RedCreek-Tunneled-DomainName",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2391",
+    "Type": "string",
+    "Attribute": "RedCreek-Tunneled-Search-List",
+    "Value": null,
+    "Format": null,
+    "Vendor": "RedCreek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

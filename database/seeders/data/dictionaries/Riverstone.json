@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2323",
+    "Type": "string",
+    "Attribute": "Riverstone-Command",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Riverstone",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2324",
+    "Type": "string",
+    "Attribute": "Riverstone-System-Event",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Riverstone",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2325",
+    "Type": "string",
+    "Attribute": "Riverstone-SNMP-Config-Change",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Riverstone",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2326",
+    "Type": "integer",
+    "Attribute": "Riverstone-User-Level",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Riverstone",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

@@ -43,7 +43,7 @@
         </mijnui:button>
 
         <mijnui:button
-                        mijnui-sidebar-parent="client-account"
+                        mijnui-sidebar-parent="management"
                         title="Client Account"
                         size="icon-sm"
                         ghost>
@@ -142,21 +142,30 @@
         </mijnui:list>
     </mijnui:sidebar.double.content>
 
-    <mijnui:sidebar.double.content mijnui-sidebar-child="client-account" title="User Management">
+    <mijnui:sidebar.double.content mijnui-sidebar-child="management" title="Management">
         <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
+            <mijnui:list.item
+                href="{{ route('client-users.index') }}"
+                :active="request()->routeIs('client-users.*')"
+                wire:navigate>
+               Client Users
+            </mijnui:list.item>
+
             <mijnui:list.item
                 href="{{ route('radcheck.index', ['serviceType' => 'pppoe']) }}"
                 :active="request()->routeIs('radcheck.index') && request('serviceType') === 'pppoe'"
                 wire:navigate>
-                PPPoE Accounts
+                Batch Users
             </mijnui:list.item>
 
             <mijnui:list.item
-                href="{{ route('radcheck.index', ['serviceType' => 'hotspot']) }}"
-                :active="request()->routeIs('radcheck.index') && request('serviceType') === 'hotspot'"
+                href="{{ route('attributes.index') }}"
+                :active="request()->routeIs('attributes.*')"
                 wire:navigate>
-                Hotspot Accounts
+                Attribute List
             </mijnui:list.item>
+
+
         </mijnui:list>
     </mijnui:sidebar.double.content>
 

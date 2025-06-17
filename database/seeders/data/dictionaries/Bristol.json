@@ -1,0 +1,62 @@
+[
+  {
+    "id": "3740",
+    "Type": "integer",
+    "Attribute": "NN-Data-Rate",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Bristol",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3741",
+    "Type": "integer",
+    "Attribute": "NN-Data-Rate-Ceiling",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Bristol",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3742",
+    "Type": "ipaddr",
+    "Attribute": "NN-Homenode",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Bristol",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3743",
+    "Type": "ipaddr",
+    "Attribute": "NN-Homeservice",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Bristol",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3744",
+    "Type": "string",
+    "Attribute": "NN-Homeservice-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Bristol",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2318",
+    "Type": "string",
+    "Attribute": "Telebit-Login-Command",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Telebit",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2319",
+    "Type": "string",
+    "Attribute": "Telebit-Port-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Telebit",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2320",
+    "Type": "string",
+    "Attribute": "Telebit-Activate-Command",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Telebit",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2321",
+    "Type": "string",
+    "Attribute": "Telebit-Accounting-Info",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Telebit",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

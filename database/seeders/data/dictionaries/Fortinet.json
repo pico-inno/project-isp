@@ -1,0 +1,38 @@
+[
+  {
+    "id": "2380",
+    "Type": "string",
+    "Attribute": "Fortinet-Group-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Fortinet",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2381",
+    "Type": "ipaddr",
+    "Attribute": "Fortinet-Client-IP-Address",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Fortinet",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2382",
+    "Type": "string",
+    "Attribute": "Fortinet-Vdom-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Fortinet",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

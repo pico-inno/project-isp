@@ -1,0 +1,122 @@
+[
+  {
+    "id": "3525",
+    "Type": "integer",
+    "Attribute": "IPU-MIP-Spi",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3526",
+    "Type": "string",
+    "Attribute": "IPU-MIP-Key",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3527",
+    "Type": "integer",
+    "Attribute": "IPU-MIP-Alg-Type",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3528",
+    "Type": "integer",
+    "Attribute": "IPU-MIP-Alg-Mode",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3529",
+    "Type": "integer",
+    "Attribute": "IPU-MIP-Replay-Prot",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3530",
+    "Type": "ipaddr",
+    "Attribute": "IPU-IKE-Remote-Addr",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3531",
+    "Type": "ipaddr",
+    "Attribute": "IPU-IKE-Local-Addr",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3532",
+    "Type": "string",
+    "Attribute": "IPU-IKE-Auth",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3533",
+    "Type": "string",
+    "Attribute": "IPU-IKE-Conf-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3534",
+    "Type": "string",
+    "Attribute": "IPU-IKE-Cmd",
+    "Value": null,
+    "Format": null,
+    "Vendor": "ipUnplugged",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

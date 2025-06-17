@@ -1,0 +1,86 @@
+[
+  {
+    "id": "3745",
+    "Type": "integer",
+    "Attribute": "CVPN5000-Tunnel-Throughput",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cisco-VPN5000",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3746",
+    "Type": "string",
+    "Attribute": "CVPN5000-Client-Assigned-IP",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cisco-VPN5000",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3747",
+    "Type": "string",
+    "Attribute": "CVPN5000-Client-Real-IP",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cisco-VPN5000",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3748",
+    "Type": "string",
+    "Attribute": "CVPN5000-VPN-GroupInfo",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cisco-VPN5000",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3749",
+    "Type": "string",
+    "Attribute": "CVPN5000-VPN-Password",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cisco-VPN5000",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3750",
+    "Type": "integer",
+    "Attribute": "CVPN5000-Echo",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cisco-VPN5000",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3751",
+    "Type": "integer",
+    "Attribute": "CVPN5000-Client-Assigned-IPX",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Cisco-VPN5000",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "2407",
+    "Type": "integer",
+    "Attribute": "Sip-Method",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Columbia-University",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2408",
+    "Type": "string",
+    "Attribute": "Sip-From",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Columbia-University",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2409",
+    "Type": "string",
+    "Attribute": "Sip-To",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Columbia-University",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2410",
+    "Type": "string",
+    "Attribute": "Sip-Translated-Request-URI",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Columbia-University",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2411",
+    "Type": null,
+    "Attribute": "Sip-Method",
+    "Value": "INVITE",
+    "Format": null,
+    "Vendor": "Columbia-University",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2412",
+    "Type": null,
+    "Attribute": "Sip-Method",
+    "Value": "BYE",
+    "Format": null,
+    "Vendor": "Columbia-University",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2413",
+    "Type": null,
+    "Attribute": "Sip-Method",
+    "Value": "REGISTER",
+    "Format": null,
+    "Vendor": "Columbia-University",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2414",
+    "Type": null,
+    "Attribute": "Sip-Method",
+    "Value": "OTHER",
+    "Format": null,
+    "Vendor": "Columbia-University",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

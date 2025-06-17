@@ -1,0 +1,98 @@
+[
+  {
+    "id": "3732",
+    "Type": "ipaddr",
+    "Attribute": "Xedia-DNS-Server",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Xedia",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3733",
+    "Type": "ipaddr",
+    "Attribute": "Xedia-NetBios-Server",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Xedia",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3734",
+    "Type": "string",
+    "Attribute": "Xedia-Address-Pool",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Xedia",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3735",
+    "Type": "integer",
+    "Attribute": "Xedia-PPP-Echo-Interval",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Xedia",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3736",
+    "Type": "integer",
+    "Attribute": "Xedia-SSH-Privileges",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Xedia",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3737",
+    "Type": "string",
+    "Attribute": "Xedia-Client-Access-Network",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Xedia",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3738",
+    "Type": "integer",
+    "Attribute": "Xedia-Client-Firewall-Setting",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Xedia",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "3739",
+    "Type": "integer",
+    "Attribute": "Xedia-Save-Password",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Xedia",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

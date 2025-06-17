@@ -1,0 +1,14 @@
+[
+  {
+    "id": "415",
+    "Type": "string",
+    "Attribute": "Chargeable-User-Identity",
+    "Value": null,
+    "Format": null,
+    "Vendor": "dictionary.rfc4372",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "4914",
+    "Type": null,
+    "Attribute": "Acct-Terminate-Cause",
+    "Value": "Supplicant-Restart",
+    "Format": null,
+    "Vendor": "dictionary.rfc3580",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4915",
+    "Type": null,
+    "Attribute": "Acct-Terminate-Cause",
+    "Value": "Reauthentication-Failure",
+    "Format": null,
+    "Vendor": "dictionary.rfc3580",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4916",
+    "Type": null,
+    "Attribute": "Acct-Terminate-Cause",
+    "Value": "Port-Reinit",
+    "Format": null,
+    "Vendor": "dictionary.rfc3580",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4917",
+    "Type": null,
+    "Attribute": "Acct-Terminate-Cause",
+    "Value": "Port-Disabled",
+    "Format": null,
+    "Vendor": "dictionary.rfc3580",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4918",
+    "Type": null,
+    "Attribute": "NAS-Port-Type",
+    "Value": "Token-Ring",
+    "Format": null,
+    "Vendor": "dictionary.rfc3580",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4919",
+    "Type": null,
+    "Attribute": "NAS-Port-Type",
+    "Value": "FDDI",
+    "Format": null,
+    "Vendor": "dictionary.rfc3580",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "4920",
+    "Type": null,
+    "Attribute": "Tunnel-Type",
+    "Value": "VLAN",
+    "Format": null,
+    "Vendor": "dictionary.rfc3580",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

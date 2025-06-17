@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2854",
+    "Type": "string",
+    "Attribute": "Garderos-Location-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Garderos",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2855",
+    "Type": "string",
+    "Attribute": "Garderos-Service-Name",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Garderos",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2856",
+    "Type": "string",
+    "Attribute": "Garderos-MSISDN",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Garderos",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "2857",
+    "Type": "string",
+    "Attribute": "Garderos-Proxy",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Garderos",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]

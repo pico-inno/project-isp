@@ -1,0 +1,74 @@
+[
+  {
+    "id": "416",
+    "Type": "integer",
+    "Attribute": "Acct-Session-Input-Octets",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Gemtek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "417",
+    "Type": "integer",
+    "Attribute": "Acct-Session-Input-Gigawords",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Gemtek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "418",
+    "Type": "integer",
+    "Attribute": "Acct-Session-Output-Octets",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Gemtek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "419",
+    "Type": "integer",
+    "Attribute": "Acct-Session-Output-Gigawords",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Gemtek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "420",
+    "Type": "integer",
+    "Attribute": "Acct-Session-Octets",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Gemtek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  },
+  {
+    "id": "421",
+    "Type": "integer",
+    "Attribute": "Acct-Session-Gigawords",
+    "Value": null,
+    "Format": null,
+    "Vendor": "Gemtek",
+    "RecommendedOP": null,
+    "RecommendedTable": null,
+    "RecommendedHelper": null,
+    "RecommendedTooltip": null
+  }
+]
