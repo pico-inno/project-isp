@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Livewire\PppProfile;
+namespace App\Livewire\Profile;
 
 use App\Models\PppProfile;
+use App\Models\RadGroupCheck;
+use App\Models\RadGroupReply;
 use App\Models\Role;
 use App\Models\Router;
 use App\Traits\HandlesFlashMessages;
@@ -41,13 +43,30 @@ class Index extends Component
     }
     public function render()
     {
-        $profiles = PppProfile::query()
-            ->when($this->search, function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
-            })
-            ->paginate(10);
+        $profiles = RadGroupCheck::select('groupname as name')
+            ->groupBy('groupname')
+            ->union(
+                RadGroupReply::select('groupname as name')
+                    ->groupBy('groupname')
+            )
+            ->orderBy('name')
+            ->get()
+            ->map(function ($item) {
 
-        return view('livewire.ppp-profile.index', compact('profiles'));
+                $checkCount = RadGroupCheck::where('groupname', $item->name)->count();
+                $replyCount = RadGroupReply::where('groupname', $item->name)->count();
+
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'total_attributes' => $checkCount + $replyCount,
+                    'check_attributes' => $checkCount,
+                    'reply_attributes' => $replyCount,
+                ];
+            });
+
+
+        return view('livewire.profile.index', compact('profiles'));
     }
 
     public function placeholder()

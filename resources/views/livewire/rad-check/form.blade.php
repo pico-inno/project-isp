@@ -84,6 +84,19 @@
                                 <mijnui:select.option value="NT-Password">NT</mijnui:select.option>
                                 <mijnui:select.option value="User-Password">User-Password</mijnui:select.option>
                             </mijnui:select>
+
+                            <mijnui:select
+                                wire:model.live="selectedProfile"
+                                label="Profiles"
+                                :disabled="$isEdit"
+                                disabled
+                            >
+                                @foreach($availableGroups as $group => $label)
+                                <mijnui:select.option  value="{{ $group }}">   {{ $label }}</mijnui:select.option>
+                                @endforeach
+                            </mijnui:select>
+
+
                         </div>
                     @elseif($authenticationType === 'pin')
                         <mijnui:input

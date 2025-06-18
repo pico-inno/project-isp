@@ -3,7 +3,7 @@
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
             <mijnui:breadcrumbs>
-                <mijnui:breadcrumbs.item wire:navigate href="{{route('ppp_profiles.index')}}">Profiles</mijnui:breadcrumbs.item>
+                <mijnui:breadcrumbs.item wire:navigate href="{{route('profiles.index')}}">Profiles</mijnui:breadcrumbs.item>
                 <mijnui:breadcrumbs.item isLast>List</mijnui:breadcrumbs.item>
             </mijnui:breadcrumbs>
             <h2 class="text-2xl font-semibold mt-2">
@@ -26,7 +26,7 @@
             <mijnui:button
                 color="primary"
                 size="md"
-                href="{{ route('ppp_profiles.create') }}"
+                href="{{ route('profiles.create') }}"
                 wire:navigate
                 class="w-full sm:w-auto"
             >
@@ -44,34 +44,26 @@
     <div class="overflow-hidden">
         <mijnui:table class="min-w-full divide-y divide-gray-200">
             <mijnui:table.columns class="bg-gray-50">
-                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/5">Name</mijnui:table.column>
-                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Bandwidth</mijnui:table.column>
-                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6">Price</mijnui:table.column>
-                <mijnui:table.column class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/6">Validity Days</mijnui:table.column>
+                <mijnui:table.column>Profile Name</mijnui:table.column>
+                <mijnui:table.column>Total Attributes</mijnui:table.column>
+                <mijnui:table.column>Check Attributes</mijnui:table.column>
+                <mijnui:table.column>Reply Attributes</mijnui:table.column>
                 <mijnui:table.column class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-1/5">Actions</mijnui:table.column>
             </mijnui:table.columns>
 
             <mijnui:table.rows class="bg-white divide-y divide-gray-200">
                 @forelse ($profiles as $profile)
-                    <mijnui:table.row wire:key="profile-{{ $profile->id }}" >
-                        <mijnui:table.cell class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm font-medium text-gray-900">{{ $profile->name }}</div>
-                        </mijnui:table.cell>
-                        <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $profile->download_speed }}/{{ $profile->upload_speed }}
-                        </mijnui:table.cell>
-                        <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $profile->price }}
-                        </mijnui:table.cell>
-                        <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $profile->validity_days }}
-                        </mijnui:table.cell>
+                    <mijnui:table.row wire:key="profile-{{ $profile['id'] }}" >
+                        <mijnui:table.cell class="font-medium">{{ $profile['name'] }}</mijnui:table.cell>
+                        <mijnui:table.cell>{{ $profile['total_attributes'] }}</mijnui:table.cell>
+                        <mijnui:table.cell>{{ $profile['check_attributes'] }}</mijnui:table.cell>
+                        <mijnui:table.cell>{{ $profile['reply_attributes'] }}</mijnui:table.cell>
                         <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div class="flex items-center justify-end space-x-2">
                                 <mijnui:button
                                     size="xs"
                                     color="secondary"
-                                    href="{{ route('ppp_profiles.edit', $profile->id) }}"
+                                    href="{{ route('profiles.edit', $profile['name']) }}"
                                     wire:navigate
                                     title="Edit"
                                 >
@@ -82,7 +74,7 @@
                                 <mijnui:button
                                     size="xs"
                                     color="danger"
-                                    wire:click="deletePackage({{ $profile->id }})"
+                                    wire:click="deletePackage({{ $profile['id'] }})"
                                     title="Delete"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -116,7 +108,7 @@
     </div>
 
     <!-- Pagination Section -->
-    @if($profiles->hasPages())
-        {{--      Comming Soon--}}
-    @endif
+{{--    @if($profiles->hasPages())--}}
+{{--        --}}{{--      Comming Soon--}}
+{{--    @endif--}}
 </div>

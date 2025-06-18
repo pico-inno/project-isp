@@ -62,14 +62,7 @@
                         </mijnui:table.cell>
                         <mijnui:table.cell class="px-6 py-4 whitespace-nowrap">{{ $account->last_login_time ? \Carbon\Carbon::parse($account->last_login_time)->format('Y-m-d H:i:s') : 'N/A' }} </mijnui:table.cell>
                         <mijnui:table.cell class="px-6 py-4 whitespace-nowrap">
-{{--                            <mijnui:badge--}}
-{{--                                size="xs"--}}
-{{--                                color="info"--}}
-{{--                                outline--}}
-{{--                                rounded="full"--}}
-{{--                            >--}}
-{{--                                {{ $account->pppProfile?->name ?? '' }}--}}
-{{--                            </mijnui:badge>--}}
+                                {{ $account->groups }}
                         </mijnui:table.cell>
                         <mijnui:table.cell class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div class="flex items-center justify-end space-x-2">

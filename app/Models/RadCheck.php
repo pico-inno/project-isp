@@ -46,4 +46,28 @@ class RadCheck extends Model
         );
     }
 
+    public function batches()
+    {
+        return $this->belongsToMany(Batch::class, 'batch_radcheck');
+    }
+
+    public function radusergroup()
+    {
+        return $this->hasOne(RadUserGroup::class, 'username', 'username');
+    }
+
+    public function radreply()
+    {
+        return $this->hasOne(RadReply::class, 'username', 'username');
+    }
+
+    public function batch()
+    {
+        return $this->belongsTo(Batch::class);
+    }
+
+    public function radusergroups()
+    {
+        return $this->hasMany(RadUserGroup::class, 'username', 'username');
+    }
 }

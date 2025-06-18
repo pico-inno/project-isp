@@ -7,7 +7,10 @@ use App\Models\HotspotProfile;
 use App\Models\PppProfile;
 use App\Models\RadAccPackage;
 use App\Models\RadCheck;
+use App\Models\RadGroupCheck;
+use App\Models\RadGroupReply;
 use App\Models\RadReply;
+use App\Models\RadUserGroup;
 use App\Traits\HandlesFlashMessages;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -25,6 +28,8 @@ class Form extends Component
     public $username;
     public $value;
 
+    public $availableGroups;
+    public $selectedProfile;
     public $attributesData = [];
     public $searchVendor = 'custom_attributes';
     public $dictionaryOptions = [];
@@ -35,10 +40,14 @@ class Form extends Component
         'username' => 'required|string|max:255',
         'value' => 'nullable|string|max:255',
         'passwordType' => 'required|in:Cleartext-Password,NT-Password,MD5-Password,SHA1-Password,User-Password,Crypt-Password,Auth-Type',
+        'selectedProfile' => 'nullable',
     ];
 
     public function mount($radCheck = null)
     {
+
+        $this->availableGroups = $this->getAllAvailableGroups();
+
         // Load vendor options
         $this->vendorOptions = Dictionary::select('vendor')
             ->whereNotNull('vendor')
@@ -74,7 +83,33 @@ class Form extends Component
                 $this->authenticationType = 'mac';
             }
             $this->loadAdditionalAttributes();
+
+            $this->selectedProfile = RadUserGroup::where('username', $radCheck->username)->value('groupname');
         }
+    }
+
+    protected function getAllAvailableGroups()
+    {
+        $userGroups = RadUserGroup::select('groupname')
+            ->distinct()
+            ->pluck('groupname')
+            ->toArray();
+
+        $checkGroups = RadGroupCheck::select('groupname')
+            ->distinct()
+            ->pluck('groupname')
+            ->toArray();
+
+        $replyGroups = RadGroupReply::select('groupname')
+            ->distinct()
+            ->pluck('groupname')
+            ->toArray();
+
+
+        $allGroups = array_unique(array_merge($userGroups, $checkGroups, $replyGroups));
+
+        sort($allGroups);
+        return array_combine($allGroups, $allGroups);
     }
 
     protected function loadAdditionalAttributes()
@@ -150,6 +185,7 @@ class Form extends Component
         $this->validate();
 
 
+
         try {
             DB::transaction(function () {
                 $data = $this->prepareRadiusData();
@@ -166,6 +202,17 @@ class Form extends Component
 
                 RadReply::where('username', $this->radCheck->username)
                     ->delete();
+
+                // group memberships
+                RadUserGroup::where('username', $this->radCheck->username)->delete();
+
+
+                RadUserGroup::create([
+                    'username' => $this->radCheck->username,
+                    'groupname' => $this->selectedProfile,
+                    'priority' => 1
+                ]);
+
 
                 // Save new attributes
                 foreach ($this->attributesData as $attribute) {

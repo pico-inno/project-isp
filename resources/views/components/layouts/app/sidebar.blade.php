@@ -51,14 +51,6 @@
         </mijnui:button>
 
         <mijnui:button
-                        mijnui-sidebar-parent="profile"
-                        title="Profile"
-                        size="icon-sm"
-                        ghost>
-            <i class="fa-solid fa-cube"></i>
-        </mijnui:button>
-
-        <mijnui:button
                         mijnui-sidebar-parent="reports"
                         title="Info"
                         size="icon-sm"
@@ -128,14 +120,11 @@
 
             @if(!in_array(request()->route()->getName(), $routerRoutes))
                 <mijnui:list.item href="{{ route('routers.index') }}" :active="request()->routeIs('routers.index')" wire:navigate>Routers</mijnui:list.item>
-                <mijnui:list.item href="{{ route('routers.nas.index') }}" :active="request()->routeIs('routers.nas.index')" wire:navigate>NAS</mijnui:list.item>
             @else
                 <mijnui:list.item href="{{ route('routers.dashboard', ['router' => request()->route('router')]) }}" :active="request()->routeIs('routers.dashboard')" wire:navigate>Dashboard</mijnui:list.item>
                 <mijnui:list.item href="{{ route('routers.dhcp-releases', ['router' => request()->route('router')]) }}" :active="request()->routeIs('routers.dhcp-releases')" wire:navigate>DHCP Releases</mijnui:list.item>
                 <mijnui:list.item href="{{ route('radius.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('radius.*')" wire:navigate>Radius</mijnui:list.item>
                 <mijnui:list.item href="{{ route('routers.network-logs', ['router' => request()->route('router')]) }}" :active="request()->routeIs('routers.network-logs')" wire:navigate>Network Logs</mijnui:list.item>
-{{--                <mijnui:list.item href="{{ route('radcheck.index',) }}" :active="request()->routeIs('radcheck.*')" wire:navigate>User Account</mijnui:list.item>--}}
-{{--                <mijnui:list.item href="{{ route('ppp_profiles.index', ['router' => request()->route('router')]) }}" :active="request()->routeIs('ppp_profiles.*')" wire:navigate>Packages</mijnui:list.item>--}}
                 <mijnui:list.item href="{{ route('routers.index') }}" :active="request()->routeIs('routers.index')" wire:navigate>Back Router List</mijnui:list.item>
             @endif
 
@@ -144,6 +133,7 @@
 
     <mijnui:sidebar.double.content mijnui-sidebar-child="management" title="Management">
         <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
+            <mijnui:list.item href="{{ route('routers.nas.index') }}" :active="request()->routeIs('routers.nas.index')" wire:navigate>NAS</mijnui:list.item>
             <mijnui:list.item
                 href="{{ route('client-users.index') }}"
                 :active="request()->routeIs('client-users.*')"
@@ -158,6 +148,8 @@
                 Batch Users
             </mijnui:list.item>
 
+            <mijnui:list.item href="{{route('profiles.index')}}" :active="request()->routeIs('profiles.index')" wire:navigate>Profiles</mijnui:list.item>
+
             <mijnui:list.item
                 href="{{ route('attributes.index') }}"
                 :active="request()->routeIs('attributes.*')"
@@ -169,14 +161,6 @@
         </mijnui:list>
     </mijnui:sidebar.double.content>
 
-
-
-    <mijnui:sidebar.double.content mijnui-sidebar-child="profile" title="Profile Management">
-        <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">
-            <mijnui:list.item href="{{route('ppp_profiles.index')}}" :active="request()->routeIs('ppp_profiles.index')" wire:navigate>PPPoE Profiles</mijnui:list.item>
-            <mijnui:list.item href="{{route('hotspot_profiles.index')}}" :active="request()->routeIs('hotspot.index')" wire:navigate>Hotspot Profile</mijnui:list.item>
-        </mijnui:list>
-    </mijnui:sidebar.double.content>
 
     <mijnui:sidebar.double.content mijnui-sidebar-child="reports" title="Reports">
         <mijnui:list class="flex h-full w-full flex-col items-center gap-2 px-4 py-4">

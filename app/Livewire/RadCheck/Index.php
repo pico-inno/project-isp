@@ -6,9 +6,11 @@ use App\Models\RadAccPackage;
 use App\Models\RadAcct;
 use App\Models\RadCheck;
 use App\Models\RadReply;
+use App\Models\RadUserGroup;
 use App\Models\Router;
 use App\Models\User;
 use App\Traits\HandlesFlashMessages;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -33,6 +35,7 @@ class Index extends Component
         }else {
             RadCheck::where('username', $radCheckUsername)->delete();
             RadReply::where('username', $radCheckUsername)->delete();
+            RadUserGroup::where('username', $radCheckUsername)->delete();
 
             $this->flashSuccess('User deleted successfully.');
         }
@@ -53,7 +56,13 @@ class Index extends Component
             $lastLogin = RadAcct::where('username', $radCheckItem->username)
                 ->orderBy('AcctStartTime', 'desc')
                 ->first();
+            $groups = DB::table('radusergroup')
+                ->where('username', $radCheckItem->username)
+                ->pluck('groupname')
+                ->implode(', ');
 
+
+            $radCheckItem->groups = $groups;
             $radCheckItem->last_login_time = $lastLogin ? $lastLogin->AcctStartTime : null;
         });
 

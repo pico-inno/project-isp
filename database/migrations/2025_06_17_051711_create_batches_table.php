@@ -17,10 +17,7 @@ return new class extends Migration
             $table->string('batch_description', 256)->nullable()->comment('general description of the entry');
             $table->integer('hotspot_id')->nullable()->default(0)->comment('the hotspot business id associated with this batch instance');
             $table->string('batch_status', 128)->default('Pending')->comment('the batch status');
-            $table->dateTime('creationdate')->nullable()->default('0000-00-00 00:00:00');
-            $table->string('creationby', 128)->nullable();
-            $table->dateTime('updatedate')->nullable()->default('0000-00-00 00:00:00');
-            $table->string('updateby', 128)->nullable();
+            $table->timestamps();
         });
     }
 

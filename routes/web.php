@@ -40,9 +40,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/nas/{nas}/edit', \App\Livewire\Router\Nas\Form::class)->name('routers.nas.edit')->lazy()->middleware('permission:read,Router');
     });
 
-    Route::get('/profiles', \App\Livewire\PppProfile\Index::class)->name('ppp_profiles.index')->lazy()->middleware('permission:read,Router');
-    Route::get('/profiles/create', \App\Livewire\PppProfile\Form::class)->name('ppp_profiles.create')->lazy()->middleware('permission:create,Router');
-    Route::get('/profiles/{pppProfile}/edit', \App\Livewire\PppProfile\Form::class)->name('ppp_profiles.edit')->lazy()->middleware('permission:update,Router');
+    Route::get('/profiles', \App\Livewire\Profile\Index::class)->name('profiles.index')->lazy()->middleware('permission:read,Router');
+    Route::get('/profiles/create', \App\Livewire\Profile\Form::class)->name('profiles.create')->lazy()->middleware('permission:create,Router');
+    Route::get('/profiles/{profile}/edit', \App\Livewire\Profile\Form::class)->name('profiles.edit')->lazy()->middleware('permission:update,Router');
 
     Route::get('/hotspot/profiles', \App\Livewire\HotspotProfile\Index::class)->name('hotspot_profiles.index')->lazy()->middleware('permission:read,Router');
     Route::get('/hotspot/profiles/create', \App\Livewire\HotspotProfile\Form::class)->name('hotspot_profiles.create')->lazy()->middleware('permission:create,Router');
@@ -73,9 +73,9 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('batch')->group(function () {
-        Route::get('/client-users/', \App\Livewire\RadCheck\Index::class)->name('batch.client-users.index')->lazy()->middleware('permission:update,Router');
-        Route::get('/client-users/create', \App\Livewire\RadCheck\Form::class)->name('batch.client-users.create')->lazy()->middleware('permission:update,Router');
-        Route::get('/client-users/{radCheck}/edit', \App\Livewire\RadCheck\Form::class)->name('batch.client-users.edit')->lazy()->middleware('permission:update,Router');
+        Route::get('/client-users/', \App\Livewire\Batch\Index::class)->name('batch.client-users.index')->lazy()->middleware('permission:update,Router');
+        Route::get('/client-users/create', \App\Livewire\Batch\Form::class)->name('batch.client-users.create')->lazy()->middleware('permission:update,Router');
+        Route::get('/client-users/{batch}/details', \App\Livewire\Batch\View::class)->name('batch.client-users.view')->lazy()->middleware('permission:update,Router');
     });
 
     Route::prefix('attributes')->group(function () {
